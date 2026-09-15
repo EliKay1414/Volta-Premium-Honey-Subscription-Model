@@ -1,0 +1,89 @@
+{
+  "name": "vivaldi-admin",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "/",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "6.1.1",
+    "@popperjs/core": "^2.11.6",
+    "animate.css": "4.1.1",
+    "apexcharts": "3.35.0",
+    "axios": "1.4.0",
+    "bootstrap": "5.3.0",
+    "bootstrap-icons": "^1.5.0",
+    "chart.js": "4.3.0",
+    "clsx": "1.1.1",
+    "formik": "2.2.9",
+    "lucide-react": "^1.43.0",
+    "qs": "6.10.3",
+    "react": "18.0.0",
+    "react-apexcharts": "1.4.0",
+    "react-bootstrap": "2.5.0-beta.1",
+    "react-copy-to-clipboard": "5.1.0",
+    "react-dom": "18.0.0",
+    "react-inlinesvg": "3.0.0",
+    "react-query": "3.38.0",
+    "react-router-dom": "6.3.0",
+    "react-scripts": "5.0.0",
+    "react-table": "^7.7.0",
+    "react-topbar-progress-indicator": "4.1.1",
+    "yup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/user-event": "14.4.3",
+    "@types/bootstrap": "5.1.10",
+    "@types/jest": "29.5.2",
+    "@types/node": "20.3.1",
+    "@types/qs": "6.9.7",
+    "@types/react": "18.0.6",
+    "@types/react-copy-to-clipboard": "5.0.2",
+    "@types/react-dom": "18.0.2",
+    "@types/react-table": "^7.7.9",
+    "@types/sass-loader": "8.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "css-loader": "6.7.1",
+    "del": "7.0.0",
+    "mini-css-extract-plugin": "2.6.1",
+    "prettier": "2.6.2",
+    "rtlcss-webpack-plugin": "4.0.7",
+    "sass": "1.55.0",
+    "sass-loader": "13.2.0",
+    "typescript": "~4.7.4",
+    "vite": "^5.4.11",
+    "webpack": "5.74.0",
+    "webpack-cli": "5.1.4"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "rtl": "webpack --config=rtl.config.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintIgnore": [
+    "dist/*"
+  ]
+}

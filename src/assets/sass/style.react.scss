@@ -1,0 +1,492 @@
+// React vendors
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+@import '~animate.css/animate.css';
+
+#root {
+  display: contents;
+}
+
+// ============================================================================
+// 1. GLOBAL SHADOW REMOVAL & CRISP TEXT RENDERING
+// ============================================================================
+.modal,
+.shadcn-table-wrapper,
+.card {
+  *,
+  *::before,
+  *::after {
+    text-shadow: none !important;
+  }
+}
+
+// ============================================================================
+// 2. MODAL TEXT CLARITY & HIGH CONTRAST ON ALL BACKGROUNDS
+// ============================================================================
+
+// Light Mode (default)
+.modal {
+  .modal-content {
+    background-color: #ffffff;
+    border: 1px solid #e4e6ef;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .modal-header {
+    h3, .modal-title {
+      color: #181c32 !important;
+      font-weight: 700;
+      text-shadow: none !important;
+    }
+    .text-muted {
+      color: #5e6278 !important;
+      font-weight: 500;
+      text-shadow: none !important;
+    }
+  }
+
+  // Section Headers inside Modals
+  .section-header-title,
+  .fs-8.fw-bolder.text-uppercase.text-gray-500,
+  .fs-8.fw-bolder.text-uppercase {
+    color: #4b5675 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em;
+    text-shadow: none !important;
+  }
+
+  // Form labels
+  .form-label {
+    color: #252f4a !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+  }
+
+  // Help text and subtitles
+  .form-text,
+  .text-muted {
+    color: #5e6278 !important;
+    text-shadow: none !important;
+  }
+
+  // Structured Grid Labels (e.g. BUYER NAME, PHONE NUMBER, PLAN TYPE)
+  .modal-detail-label,
+  .text-muted.fs-8.fw-bold,
+  .text-muted.fs-8 {
+    color: #4b5675 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em;
+    text-shadow: none !important;
+  }
+
+  // Detail values
+  .fw-bolder.text-gray-900,
+  .fw-bold.text-gray-900 {
+    color: #181c32 !important;
+    text-shadow: none !important;
+  }
+
+  .fw-bold.text-gray-800 {
+    color: #252f4a !important;
+    text-shadow: none !important;
+  }
+
+  // Overview / summary cards inside modals
+  .card.bg-light,
+  .bg-light {
+    background-color: #f9f9fa !important;
+    border: 1px solid #e4e6ef !important;
+  }
+
+  .bg-light-primary {
+    background-color: rgba(62, 151, 255, 0.08) !important;
+    border: 1px solid rgba(62, 151, 255, 0.22) !important;
+
+    .text-muted {
+      color: #005fcc !important;
+      font-weight: 600;
+      text-shadow: none !important;
+    }
+  }
+}
+
+// Dark Mode Overrides for Modals
+[data-bs-theme='dark'] .modal {
+  .modal-content {
+    background-color: #1e1e2d !important;
+    border: 1px solid #2b2b40 !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .modal-header {
+    h3, .modal-title {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+    .text-muted {
+      color: #9a9cae !important;
+      text-shadow: none !important;
+    }
+  }
+
+  .section-header-title,
+  .fs-8.fw-bolder.text-uppercase.text-gray-500,
+  .fs-8.fw-bolder.text-uppercase {
+    color: #b5b5c3 !important;
+    letter-spacing: 0.04em;
+    text-shadow: none !important;
+  }
+
+  .form-label {
+    color: #e1e3ea !important;
+    text-shadow: none !important;
+  }
+
+  .form-text,
+  .text-muted {
+    color: #9a9cae !important;
+    text-shadow: none !important;
+  }
+
+  .modal-detail-label,
+  .text-muted.fs-8.fw-bold,
+  .text-muted.fs-8 {
+    color: #9a9cae !important;
+    letter-spacing: 0.03em;
+    text-shadow: none !important;
+  }
+
+  .fw-bolder.text-gray-900,
+  .fw-bold.text-gray-900 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+  }
+
+  .fw-bold.text-gray-800 {
+    color: #e1e3ea !important;
+    text-shadow: none !important;
+  }
+
+  .card.bg-light,
+  .bg-light {
+    background-color: #232334 !important;
+    border: 1px solid #323248 !important;
+  }
+
+  .bg-light-primary {
+    background-color: rgba(62, 151, 255, 0.12) !important;
+    border: 1px solid rgba(62, 151, 255, 0.3) !important;
+
+    .text-muted {
+      color: #8bb4f8 !important;
+      font-weight: 600;
+      text-shadow: none !important;
+    }
+
+    .text-gray-800,
+    .text-gray-900 {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+  }
+
+  // Inputs and selects inside modals in dark mode
+  .form-control.form-control-solid,
+  .form-select.form-select-solid {
+    background-color: #1b1b29 !important;
+    border-color: #2b2b40 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+
+    &:focus {
+      background-color: #1b1b29 !important;
+      border-color: #3e97ff !important;
+      color: #ffffff !important;
+    }
+  }
+}
+
+// ============================================================================
+// 3. THEME-RESPONSIVE SHADCN TABLES
+// ============================================================================
+
+// Light Mode Tables (default)
+.shadcn-table-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #e4e6ef;
+  color: #181c32;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  table {
+    color: #181c32;
+    background-color: transparent;
+
+    thead tr {
+      background-color: #f9f9fa !important;
+      border-bottom: 1px solid #e4e6ef !important;
+    }
+
+    thead th {
+      color: #4b5675 !important;
+      font-weight: 700 !important;
+      border-bottom: 1px solid #e4e6ef !important;
+
+      .shadcn-header-title {
+        color: #4b5675;
+        &:hover {
+          color: #009ef7;
+        }
+      }
+    }
+
+    tbody tr {
+      background-color: #ffffff;
+      border-bottom: 1px solid #f1f1f4 !important;
+      transition: background-color 0.15s ease;
+
+      &:hover,
+      &.shadcn-row-highlighted {
+        background-color: #f1f5f9 !important;
+      }
+
+      &.shadcn-row-highlighted {
+        td:first-child {
+          border-left: 3px solid #009ef7 !important;
+        }
+
+        .shadcn-cell-highlighted {
+          background-color: #e8f3ff !important;
+          color: #006ae6 !important;
+          font-weight: 600 !important;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    tbody td {
+      color: #252f4a;
+    }
+  }
+
+  .shadcn-table-pagination {
+    background-color: #ffffff !important;
+    border-top: 1px solid #e4e6ef !important;
+    color: #5e6278;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    select {
+      background-color: #f5f8fa;
+      color: #181c32;
+      border-color: #e4e6ef;
+    }
+
+    .btn-light {
+      background-color: #f5f8fa;
+      color: #4b5675;
+      border-color: #e4e6ef;
+
+      &:hover:not(:disabled) {
+        background-color: #e4e6ef;
+        color: #009ef7;
+      }
+    }
+  }
+}
+
+.shadcn-column-dropdown {
+  background-color: #ffffff !important;
+  border: 1px solid #e4e6ef !important;
+  box-shadow: 0 10px 30px rgba(82, 63, 105, 0.12) !important;
+
+  .dropdown-item {
+    color: #4b5675 !important;
+    &:hover {
+      background-color: #f4f6fa !important;
+      color: #009ef7 !important;
+    }
+  }
+
+  .separator {
+    border-color: #e4e6ef !important;
+  }
+}
+
+// Dark Mode Tables
+[data-bs-theme='dark'] {
+  .shadcn-table-wrapper {
+    background-color: #1e1e2d !important;
+    border: 1px solid #2b2b40 !important;
+    color: #ffffff !important;
+
+    table {
+      color: #cdcdde !important;
+      background-color: transparent !important;
+
+      thead tr {
+        background-color: #151521 !important;
+        border-bottom: 1px solid #2b2b40 !important;
+      }
+
+      thead th {
+        color: #92929f !important;
+        font-weight: 700 !important;
+        border-bottom: 1px solid #2b2b40 !important;
+
+        .shadcn-header-title {
+          color: #b5b5c3 !important;
+          &:hover {
+            color: #3e97ff !important;
+          }
+        }
+      }
+
+      tbody tr {
+        background-color: #1e1e2d !important;
+        border-bottom: 1px solid #2b2b40 !important;
+
+        &:hover,
+        &.shadcn-row-highlighted {
+          background-color: #232334 !important;
+        }
+
+        &.shadcn-row-highlighted {
+          td:first-child {
+            border-left: 3px solid #3e97ff !important;
+          }
+
+          .shadcn-cell-highlighted {
+            background-color: #1a2a44 !important;
+            color: #5bb0ff !important;
+            font-weight: 600 !important;
+            border-radius: 4px;
+          }
+        }
+      }
+
+      tbody td {
+        color: #cdcdde !important;
+      }
+
+      .text-gray-900 {
+        color: #ffffff !important;
+      }
+
+      .text-gray-800 {
+        color: #e1e3ea !important;
+      }
+
+      .text-gray-700 {
+        color: #b5b5c3 !important;
+      }
+
+      .text-muted {
+        color: #92929f !important;
+      }
+
+      .badge-light {
+        background-color: #2b2b40 !important;
+        color: #cdcdde !important;
+      }
+    }
+
+    .shadcn-table-pagination {
+      background-color: #1e1e2d !important;
+      border-top: 1px solid #2b2b40 !important;
+      color: #b5b5c3 !important;
+
+      select {
+        background-color: #1b1b29 !important;
+        color: #ffffff !important;
+        border-color: #2b2b40 !important;
+      }
+
+      .btn-light {
+        background-color: #2b2b40 !important;
+        color: #cdcdde !important;
+        border-color: #323248 !important;
+
+        &:hover:not(:disabled) {
+          background-color: #323248 !important;
+          color: #3e97ff !important;
+        }
+
+        &:disabled {
+          opacity: 0.35;
+        }
+      }
+    }
+  }
+
+  .shadcn-column-dropdown {
+    background-color: #1e1e2d !important;
+    border: 1px solid #2b2b40 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+
+    .dropdown-item {
+      color: #cdcdde !important;
+      &:hover {
+        background-color: #2b2b40 !important;
+        color: #3e97ff !important;
+      }
+    }
+
+    .separator {
+      border-color: #2b2b40 !important;
+    }
+  }
+}
+
+// ============================================================================
+// 4. PRODUCT CODE STYLING & FONT CONSISTENCY
+// ============================================================================
+.product-code-badge,
+.product-code-tag,
+.product-code-text {
+  font-family: 'Inter', Helvetica, 'sans-serif' !important;
+  text-shadow: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.product-code-badge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
+  padding: 0.35rem 0.65rem !important;
+  border-radius: 0.475rem !important;
+  letter-spacing: 0.02em;
+  background-color: #e8f3ff !important;
+  color: #006ae6 !important;
+  border: 1px solid #b9daff !important;
+}
+
+.product-code-tag {
+  font-weight: 700 !important;
+  color: #0056b3 !important;
+}
+
+.product-code-text {
+  font-weight: 600 !important;
+  color: #4b5675 !important;
+}
+
+[data-bs-theme='dark'] {
+  .product-code-badge {
+    background-color: #1a2a44 !important;
+    color: #5bb0ff !important;
+    border: 1px solid #284470 !important;
+    text-shadow: none !important;
+  }
+
+  .product-code-tag {
+    color: #70b8ff !important;
+    text-shadow: none !important;
+  }
+
+  .product-code-text {
+    color: #b5b5c3 !important;
+    text-shadow: none !important;
+  }
+}
