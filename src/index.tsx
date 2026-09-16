@@ -1,7 +1,6 @@
 import {createRoot} from 'react-dom/client'
 // Axios
 import axios from 'axios'
-import {Chart, registerables} from 'chart.js'
 import {QueryClient, QueryClientProvider} from 'react-query'
 // Apps
 import './assets/fonticon/fonticon.css'
@@ -16,7 +15,6 @@ import {AuthProvider, setupAxios} from './pages/auth'
 
 // Set up Axios default headers and authentication token interceptor
 setupAxios(axios)
-Chart.register(...registerables)
 
 const queryClient = new QueryClient()
 const container = document.getElementById('root')

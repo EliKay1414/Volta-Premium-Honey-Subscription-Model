@@ -18,25 +18,10 @@ const VivaldiSplashScreenProvider: FC<WithChildren> = ({children}) => {
   let visible = count > 0
 
   useEffect(() => {
-    // Show SplashScreen
     if (visible) {
+      document.body.classList.add('page-loading')
+    } else {
       document.body.classList.remove('page-loading')
-
-      return () => {
-        document.body.classList.add('page-loading')
-      }
-    }
-
-    // Hide SplashScreen
-    let timeout: number
-    if (!visible) {
-      timeout = window.setTimeout(() => {
-        document.body.classList.add('page-loading')
-      }, 3000)
-    }
-
-    return () => {
-      clearTimeout(timeout)
     }
   }, [visible])
 

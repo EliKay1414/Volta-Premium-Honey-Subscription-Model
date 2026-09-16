@@ -112,25 +112,37 @@ export async function requestPassword(email: string) {
 }
 
 export async function getUserByToken(token: string) {
-  try {
-    if (token && token.startsWith('vivaldi-token-')) {
-      if (typeof localStorage !== 'undefined') {
-        const saved = localStorage.getItem(LOCAL_USER_KEY)
-        if (saved) {
+  // In local/offline mode or without backend API_URL, resolve user immediately
+  if (!API_URL || (token && token.startsWith('vivaldi-token-'))) {
+    if (typeof localStorage !== 'undefined') {
+      const saved = localStorage.getItem(LOCAL_USER_KEY)
+      if (saved) {
+        try {
           return {data: JSON.parse(saved) as UserModel}
+        } catch {
+          // ignore error
         }
       }
-      return {data: defaultAdminUser}
     }
-    const response = await axios.post<UserModel>(GET_USER_BY_ACCESSTOKEN_URL, {
-      api_token: token,
-    })
+    return {data: defaultAdminUser}
+  }
+
+  try {
+    const response = await axios.post<UserModel>(
+      GET_USER_BY_ACCESSTOKEN_URL,
+      {api_token: token},
+      {timeout: 2500}
+    )
     return response
   } catch (error) {
     if (typeof localStorage !== 'undefined') {
       const saved = localStorage.getItem(LOCAL_USER_KEY)
       if (saved) {
-        return {data: JSON.parse(saved) as UserModel}
+        try {
+          return {data: JSON.parse(saved) as UserModel}
+        } catch {
+          // ignore error
+        }
       }
     }
     return {data: defaultAdminUser}

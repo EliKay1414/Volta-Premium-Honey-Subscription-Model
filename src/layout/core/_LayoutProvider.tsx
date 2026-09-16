@@ -49,6 +49,9 @@ const disableSplashScreen = () => {
   if (splashScreen) {
     splashScreen.style.setProperty('display', 'none')
   }
+  if (typeof document !== 'undefined' && document.body) {
+    document.body.classList.remove('page-loading')
+  }
 }
 
 const LayoutProvider: FC<WithChildren> = ({children}) => {
