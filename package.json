@@ -2,6 +2,7 @@
   "name": "vivaldi-admin",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "homepage": "/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "6.1.1",
@@ -43,7 +44,7 @@
     "@types/react-dom": "18.0.2",
     "@types/react-table": "^7.7.9",
     "@types/sass-loader": "8.0.3",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^4.7.0",
     "css-loader": "6.7.1",
     "del": "7.0.0",
     "mini-css-extract-plugin": "2.6.1",
@@ -52,7 +53,7 @@
     "sass": "1.55.0",
     "sass-loader": "13.2.0",
     "typescript": "~4.7.4",
-    "vite": "^5.4.11",
+    "vite": "^6.4.3",
     "webpack": "5.74.0",
     "webpack-cli": "5.1.4"
   },
@@ -63,7 +64,7 @@
     "preview": "vite preview",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "rtl": "webpack --config=rtl.config.js"
+    "rtl": "webpack --config=rtl.config.cjs"
   },
   "eslintConfig": {
     "extends": [
