@@ -312,27 +312,27 @@ const UsersPage: FC = () => {
       <PageTitle breadcrumbs={[]}>Users</PageTitle>
 
       <div className='card mb-5 mb-xl-8'>
-        <div className='card-header border-0 pt-5'>
+        <div className='card-header border-0 pt-5 flex-wrap gap-2'>
           <h3 className='card-title align-items-start flex-column'>
-            <span className='card-label fw-bold fs-3 mb-1'>System Users</span>
+            <span className='card-label fw-bold fs-3 mb-1'>System Users & Permissions</span>
             <span className='text-muted mt-1 fw-semibold fs-7'>
-              Manage Admins and Customer Support team members who use this dashboard
+              Manage Admin and Customer Support desk team members and access credentials
             </span>
           </h3>
-          <div className='card-toolbar'>
+          <div className='card-toolbar d-flex flex-wrap gap-2'>
             <button
               type='button'
-              className='btn btn-sm btn-primary'
+              className='btn btn-sm btn-primary fw-bold'
               onClick={() => setIsAddModalOpen(true)}
             >
-              <Plus size={16} className='me-2' /> Add New User
+              <Plus size={16} className='me-1' /> Add New User
             </button>
           </div>
         </div>
 
         <div className='card-body py-4'>
           {/* Search & Filter Toolbar */}
-          <div className='d-flex flex-wrap align-items-center justify-content-between gap-4 mb-5'>
+          <div className='d-flex flex-wrap align-items-center justify-content-between gap-3 mb-5'>
             <div className='position-relative w-100 w-md-300px'>
               <Search
                 size={16}
@@ -347,7 +347,7 @@ const UsersPage: FC = () => {
               />
             </div>
 
-            <div className='d-flex align-items-center gap-2'>
+            <div className='d-flex align-items-center gap-2 flex-wrap'>
               {(['All', 'Admin', 'Customer Support'] as const).map((r) => (
                 <button
                   key={r}
@@ -381,28 +381,28 @@ const UsersPage: FC = () => {
       {/* MODAL 1: Add New User Modal */}
       {isAddModalOpen && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-600px'>
-            <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
-                <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>Add New User</h3>
+          <div className='modal-dialog modal-dialog-centered mw-600px w-100 mx-auto'>
+            <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
+                <div>
+                  <h3 className='fw-bolder text-gray-900 fs-4 mb-1'>Add New Team Member</h3>
+                  <span className='text-muted fs-7'>Create an account for Admin or Customer Support</span>
+                </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
                   onClick={() => setIsAddModalOpen(false)}
+                  aria-label='Close'
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleAddUser}>
-                <div className='modal-body pt-4 pb-6 px-8'>
-                  <p className='text-muted fs-7 mb-5'>
-                    Create an account for an Admin or Customer Support team member.
-                  </p>
-
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   <div className='row g-4'>
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Full Name</label>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Full Name</label>
                       <input
                         type='text'
                         className='form-control form-control-solid'
@@ -414,7 +414,7 @@ const UsersPage: FC = () => {
                     </div>
 
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Email Address</label>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Email Address</label>
                       <input
                         type='email'
                         className='form-control form-control-solid'
@@ -425,8 +425,8 @@ const UsersPage: FC = () => {
                       />
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Role</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Role</label>
                       <select
                         className='form-select form-select-solid'
                         value={newUser.role}
@@ -442,8 +442,8 @@ const UsersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Department</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Department</label>
                       <select
                         className='form-select form-select-solid'
                         value={newUser.department}
@@ -459,8 +459,8 @@ const UsersPage: FC = () => {
 
                     {/* Avatar Selection */}
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 mb-2'>Choose Profile Photo</label>
-                      <div className='d-flex flex-wrap gap-3 p-3 bg-light rounded-3 align-items-center'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 mb-2'>Choose Profile Photo</label>
+                      <div className='d-flex flex-wrap gap-3 p-3 bg-light rounded-3 align-items-center border border-gray-200'>
                         {AVAILABLE_AVATARS.map((avatarPath) => {
                           const isSelected = newUser.avatar === avatarPath
                           return (
@@ -493,7 +493,7 @@ const UsersPage: FC = () => {
                     </div>
 
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7'>Status</label>
+                      <label className='form-label fw-semibold text-gray-800 fs-7'>Status</label>
                       <select
                         className='form-select form-select-solid'
                         value={newUser.status}
@@ -511,7 +511,7 @@ const UsersPage: FC = () => {
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -519,7 +519,7 @@ const UsersPage: FC = () => {
                   >
                     Cancel
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Add User
                   </button>
                 </div>
@@ -532,33 +532,37 @@ const UsersPage: FC = () => {
       {/* MODAL 2: Edit User Modal */}
       {editingUser && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-600px'>
-            <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
-                <div className='d-flex align-items-center gap-3'>
-                  <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>Edit User Profile</h3>
-                  <span
-                    className={`badge badge-light-${
-                      editingUser.status === 'Active' ? 'success' : 'secondary'
-                    } fw-bold`}
-                  >
-                    {editingUser.status}
-                  </span>
+          <div className='modal-dialog modal-dialog-centered mw-600px w-100 mx-auto'>
+            <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
+                <div>
+                  <div className='d-flex flex-wrap align-items-center gap-2 mb-1'>
+                    <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>Edit User Profile</h3>
+                    <span
+                      className={`badge badge-light-${
+                        editingUser.status === 'Active' ? 'success' : 'secondary'
+                      } fw-bold`}
+                    >
+                      {editingUser.status}
+                    </span>
+                  </div>
+                  <span className='text-muted fs-7'>Update credentials, department, and role permissions</span>
                 </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
                   onClick={() => setEditingUser(null)}
+                  aria-label='Close'
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleSaveEditUser}>
-                <div className='modal-body pt-4 pb-6 px-8'>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   <div className='row g-4'>
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Full Name</label>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Full Name</label>
                       <input
                         type='text'
                         className='form-control form-control-solid'
@@ -569,7 +573,7 @@ const UsersPage: FC = () => {
                     </div>
 
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Email Address</label>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Email Address</label>
                       <input
                         type='email'
                         className='form-control form-control-solid'
@@ -579,8 +583,8 @@ const UsersPage: FC = () => {
                       />
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Role</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Role</label>
                       <select
                         className='form-select form-select-solid'
                         value={editingUser.role}
@@ -596,8 +600,8 @@ const UsersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Department</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Department</label>
                       <select
                         className='form-select form-select-solid'
                         value={editingUser.department}
@@ -613,8 +617,8 @@ const UsersPage: FC = () => {
 
                     {/* Avatar Selection */}
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 mb-2'>Profile Photo</label>
-                      <div className='d-flex flex-wrap gap-3 p-3 bg-light rounded-3 align-items-center'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 mb-2'>Profile Photo</label>
+                      <div className='d-flex flex-wrap gap-3 p-3 bg-light rounded-3 align-items-center border border-gray-200'>
                         {AVAILABLE_AVATARS.map((avatarPath) => {
                           const isSelected = editingUser.avatar === avatarPath
                           return (
@@ -647,7 +651,7 @@ const UsersPage: FC = () => {
                     </div>
 
                     <div className='col-12'>
-                      <div className='card bg-light p-4 rounded-3 border-0 d-flex flex-row align-items-center justify-content-between'>
+                      <div className='card bg-light p-4 rounded-3 border border-gray-200 d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                         <div>
                           <div className='fw-bold text-gray-800 fs-7'>User Account Status</div>
                           <div className='text-muted fs-8'>
@@ -668,7 +672,7 @@ const UsersPage: FC = () => {
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -676,7 +680,7 @@ const UsersPage: FC = () => {
                   >
                     Close
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Save Changes
                   </button>
                 </div>

@@ -8,16 +8,18 @@
 }
 
 // ============================================================================
-// 1. GLOBAL SHADOW REMOVAL & CRISP TEXT RENDERING
+// 1. UNIVERSAL SHADOW REMOVAL & CRISP INTER TEXT RENDERING
 // ============================================================================
-.modal,
-.shadcn-table-wrapper,
-.card {
-  *,
-  *::before,
-  *::after {
-    text-shadow: none !important;
-  }
+*,
+*::before,
+*::after {
+  text-shadow: none !important;
+}
+
+body {
+  font-family: 'Inter', Helvetica, 'sans-serif' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // ============================================================================
@@ -490,3 +492,106 @@
     text-shadow: none !important;
   }
 }
+
+// ============================================================================
+// 5. RESPONSIVE MODAL & MOBILE UI ARCHITECTURE (PAVE360 / METRONIC 8 STANDARD)
+// ============================================================================
+.modal-dialog {
+  width: 92%;
+  max-width: 440px;
+  margin: 1.25rem auto;
+
+  @media (min-width: 576px) {
+    width: 90%;
+    max-width: 520px;
+    margin: 1.75rem auto;
+  }
+
+  // On larger screens (>= 992px), allow modals to flex-grow to their full width specifications
+  &.mw-600px {
+    @media (min-width: 992px) {
+      max-width: 600px;
+    }
+  }
+
+  &.mw-650px {
+    @media (min-width: 992px) {
+      max-width: 650px;
+    }
+  }
+
+  &.mw-700px {
+    @media (min-width: 992px) {
+      max-width: 700px;
+    }
+  }
+
+  &.mw-750px {
+    @media (min-width: 992px) {
+      max-width: 750px;
+    }
+  }
+}
+
+.modal {
+  .modal-content {
+    border-radius: 0.85rem !important;
+    overflow: hidden;
+    max-height: calc(100vh - 2.5rem);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .modal-header {
+    padding: 1.15rem 1.25rem 0.5rem 1.25rem;
+    flex-shrink: 0;
+    @media (min-width: 768px) {
+      padding: 1.5rem 1.75rem 0.75rem 1.75rem;
+    }
+  }
+
+  .modal-body {
+    padding: 0.85rem 1.25rem 1.15rem 1.25rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(80vh - 110px);
+    @media (min-width: 768px) {
+      padding: 1.15rem 1.75rem 1.5rem 1.75rem;
+    }
+  }
+
+  .modal-footer {
+    padding: 0.75rem 1.25rem 1.15rem 1.25rem;
+    flex-shrink: 0;
+    @media (min-width: 768px) {
+      padding: 0.75rem 1.75rem 1.5rem 1.75rem;
+    }
+  }
+}
+
+// Ensure select dropdowns strictly respect container boundaries and never overflow horizontally
+select.form-select,
+.form-select {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-break: normal !important;
+  box-sizing: border-box !important;
+}
+
+select.form-select option,
+.form-select option {
+  max-width: 100%;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.table-responsive {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+

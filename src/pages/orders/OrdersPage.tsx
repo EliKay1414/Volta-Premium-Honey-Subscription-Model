@@ -424,7 +424,7 @@ const OrdersPage: FC = () => {
       header: 'Region',
       accessor: 'region',
       render: (item) => (
-        <span className='badge badge-light fw-bold text-gray-800 text-nowrap'>
+        <span className='text-gray-800 fs-7 text-nowrap'>
           {item.region}
         </span>
       ),
@@ -457,14 +457,14 @@ const OrdersPage: FC = () => {
       <PageTitle breadcrumbs={[]}>Orders</PageTitle>
 
       <div className='card mb-5 mb-xl-8'>
-        <div className='card-header border-0 pt-5'>
+        <div className='card-header border-0 pt-5 flex-wrap gap-2'>
           <h3 className='card-title align-items-start flex-column'>
             <span className='card-label fw-bold fs-3 mb-1'>Honey Orders</span>
             <span className='text-muted mt-1 fw-semibold fs-7'>
               Record of bottle orders placed by subscribers with SKU, Plan, and Payment details
             </span>
           </h3>
-          <div className='card-toolbar d-flex gap-2'>
+          <div className='card-toolbar d-flex flex-wrap gap-2'>
             <button
               type='button'
               onClick={() => setIsCreateModalOpen(true)}
@@ -579,34 +579,35 @@ const OrdersPage: FC = () => {
       {/* MODAL 1: Create Order Modal */}
       {isCreateModalOpen && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-650px'>
-            <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
+          <div className='modal-dialog modal-dialog-centered mw-650px w-100 mx-auto'>
+            <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
                 <div>
                   <h3 className='fw-bolder text-gray-900 fs-4 mb-1'>Create New Honey Order</h3>
                   <span className='text-muted fs-7'>Set Plan, SKU, Quantity, and Payment options</span>
                 </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
                   onClick={() => setIsCreateModalOpen(false)}
+                  aria-label='Close'
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleCreateOrder}>
-                <div className='modal-body py-6 px-8' style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   {/* Section 1: Buyer & Plan Details */}
                   <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         1. Buyer & Plan Details
                       </span>
                     </div>
                     <div className='row g-4 mb-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Buyer Name</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Buyer Name</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -617,8 +618,8 @@ const OrdersPage: FC = () => {
                         />
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Phone Number</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Phone Number</label>
                         <input
                           type='tel'
                           className='form-control form-control-solid'
@@ -631,8 +632,8 @@ const OrdersPage: FC = () => {
                     </div>
 
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Region</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Region</label>
                         <select
                           className='form-select form-select-solid'
                           value={newOrder.region}
@@ -646,8 +647,8 @@ const OrdersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Plan Type</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Plan Type</label>
                         <select
                           className='form-select form-select-solid'
                           value={newOrder.planType}
@@ -668,14 +669,14 @@ const OrdersPage: FC = () => {
 
                   {/* Section 2: Bottle Product & Quantity */}
                   <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         2. Bottle Selection & Quantity
                       </span>
                     </div>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Bottle Size</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
                           value={newOrder.bottleType}
@@ -686,13 +687,16 @@ const OrdersPage: FC = () => {
                             })
                           }
                         >
-                          <option value='500g plastic bottles'>500g plastic bottles (Large • Product Code: VIV-500-PL • GH₵ 100 each)</option>
-                          <option value='330g plastic bottles'>330g plastic bottles (Regular • Product Code: VIV-330-PL • GH₵ 85 each)</option>
+                          <option value='500g plastic bottles'>500g plastic bottles (GH₵ 100 • Large)</option>
+                          <option value='330g plastic bottles'>330g plastic bottles (GH₵ 85 • Regular)</option>
                         </select>
+                        <div className='form-text fs-8 text-muted mt-1'>
+                          Product Code: {newOrder.bottleType === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}
+                        </div>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Quantity (Bottles)</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Quantity (Bottles)</label>
                         <div className='d-flex align-items-center gap-2 mb-2'>
                           <div className='input-group input-group-solid' style={{maxWidth: '140px'}}>
                             <button
@@ -729,14 +733,14 @@ const OrdersPage: FC = () => {
 
                   {/* Section 3: Payment & Delivery Status */}
                   <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         3. Payment & Delivery Status
                       </span>
                     </div>
                     <div className='row g-4'>
-                      <div className='col-md-4'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Payment Method</label>
+                      <div className='col-12 col-md-4'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Payment Method</label>
                         <select
                           className='form-select form-select-solid'
                           value={newOrder.paymentMethod}
@@ -754,8 +758,8 @@ const OrdersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-4'>
-                        <label className='form-label fw-bold text-gray-800 fs-7'>Payment Status</label>
+                      <div className='col-12 col-md-4'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7'>Payment Status</label>
                         <select
                           className='form-select form-select-solid'
                           value={newOrder.paymentStatus}
@@ -771,8 +775,8 @@ const OrdersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-4'>
-                        <label className='form-label fw-bold text-gray-800 fs-7'>Delivery Status</label>
+                      <div className='col-12 col-md-4'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7'>Delivery Status</label>
                         <select
                           className='form-select form-select-solid'
                           value={newOrder.deliveryStatus}
@@ -793,14 +797,14 @@ const OrdersPage: FC = () => {
 
                   {/* Calculated Order Summary Card */}
                   <div className='card bg-light-primary border-primary border border-dashed p-4 rounded-3 mb-2'>
-                    <div className='d-flex flex-row align-items-center justify-content-between'>
+                    <div className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                       <div>
                         <div className='fw-bolder text-gray-800 fs-7'>Order Total Calculation:</div>
                         <div className='text-gray-700 fw-semibold fs-8'>
                           {newOrder.numberOfBottles} × {newOrder.bottleType} (<span className='product-code-tag'>Product Code: {newOrder.bottleType === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}</span>) • {newOrder.planType}
                         </div>
                       </div>
-                      <div className='fs-3 fw-bolder text-primary'>
+                      <div className='fs-3 fw-bolder text-primary text-sm-end'>
                         GH₵ {(
                           newOrder.planType === 'Annual Plan'
                             ? Math.round(newOrder.numberOfBottles * (newOrder.bottleType === '500g plastic bottles' ? 100 : 85) * 12 * 0.9)
@@ -811,7 +815,7 @@ const OrdersPage: FC = () => {
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -819,7 +823,7 @@ const OrdersPage: FC = () => {
                   >
                     Cancel
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Create Order
                   </button>
                 </div>
@@ -832,78 +836,82 @@ const OrdersPage: FC = () => {
       {/* MODAL 2: Order Details & Management Modal */}
       {selectedOrder && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-650px'>
-            <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
-                <div className='d-flex align-items-center gap-3'>
-                  <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>
-                    Order {selectedOrder.orderNumber}
-                  </h3>
-                  <span
-                    className={`badge badge-light-${
-                      selectedOrder.deliveryStatus === 'Delivered'
-                        ? 'success'
-                        : selectedOrder.deliveryStatus === 'On the Way'
-                        ? 'primary'
-                        : 'warning'
-                    } fw-bold`}
-                  >
-                    {selectedOrder.deliveryStatus}
-                  </span>
-                  <span
-                    className={`badge badge-light-${
-                      selectedOrder.paymentStatus === 'Paid' ? 'success' : 'danger'
-                    } fw-bold`}
-                  >
-                    {selectedOrder.paymentStatus}
-                  </span>
+          <div className='modal-dialog modal-dialog-centered mw-650px w-100 mx-auto'>
+            <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
+                <div>
+                  <div className='d-flex flex-wrap align-items-center gap-2 mb-1'>
+                    <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>
+                      Order {selectedOrder.orderNumber}
+                    </h3>
+                    <span
+                      className={`badge badge-light-${
+                        selectedOrder.deliveryStatus === 'Delivered'
+                          ? 'success'
+                          : selectedOrder.deliveryStatus === 'On the Way'
+                          ? 'primary'
+                          : 'warning'
+                      } fw-bold`}
+                    >
+                      {selectedOrder.deliveryStatus}
+                    </span>
+                    <span
+                      className={`badge badge-light-${
+                        selectedOrder.paymentStatus === 'Paid' ? 'success' : 'danger'
+                      } fw-bold`}
+                    >
+                      {selectedOrder.paymentStatus}
+                    </span>
+                  </div>
+                  <span className='text-muted fs-7'>Order overview and fulfillment status</span>
                 </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
                   onClick={() => setSelectedOrder(null)}
+                  aria-label='Close'
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleSaveOrderDetails}>
-                <div className='modal-body pt-4 pb-6 px-8' style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
-                  <div className='card bg-light p-4 mb-5 rounded-3 border-0'>
-                    <div className='row g-3'>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>BUYER NAME</div>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
+                  <div className='card bg-light p-4 mb-5 rounded-3 border border-gray-200'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>BUYER NAME</div>
                         <div className='fw-bolder text-gray-900 fs-6'>{selectedOrder.buyerName}</div>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>PHONE NUMBER</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>PHONE NUMBER</div>
                         <div className='fw-bold text-gray-800 fs-7'>{selectedOrder.phoneNumber}</div>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>PLAN TYPE</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>PLAN TYPE</div>
                         <div className='fw-bold text-gray-900 fs-7'>{selectedOrder.planType}</div>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>BOTTLE & PRODUCT CODE</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>BOTTLE & PRODUCT CODE</div>
                         <div className='fw-bold text-primary fs-7'>
                           {selectedOrder.numberOfBottles}x {selectedOrder.bottleType}
                         </div>
                         <span className='badge badge-light-primary fw-bold fs-8 product-code-badge mt-1'>Product Code: {selectedOrder.sku}</span>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>PAYMENT METHOD</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>PAYMENT METHOD</div>
                         <div className='fw-bold text-gray-800 fs-7'>{selectedOrder.paymentMethod}</div>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>TOTAL BILL</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>TOTAL BILL</div>
                         <div className='fw-bolder text-success fs-5'>{selectedOrder.amountGHS}</div>
                       </div>
                     </div>
                   </div>
 
                   <div className='row g-4'>
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7'>Update Delivery Status</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7'>Update Delivery Status</label>
                       <select
                         className='form-select form-select-solid'
                         value={selectedOrder.deliveryStatus}
@@ -920,8 +928,8 @@ const OrdersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7'>Update Payment Status</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7'>Update Payment Status</label>
                       <select
                         className='form-select form-select-solid'
                         value={selectedOrder.paymentStatus}
@@ -939,7 +947,7 @@ const OrdersPage: FC = () => {
                   </div>
 
                   {selectedOrder.deliveryStatus !== 'Delivered' && (
-                    <div className='mt-5 pt-4 border-top d-flex align-items-center justify-content-between'>
+                    <div className='mt-5 pt-4 border-top border-gray-200 d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                       <div>
                         <div className='fw-bold text-gray-800 fs-7'>Quick Action</div>
                         <div className='text-muted fs-8'>Mark this order as fulfilled and paid right away</div>
@@ -956,7 +964,7 @@ const OrdersPage: FC = () => {
                   )}
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -964,7 +972,7 @@ const OrdersPage: FC = () => {
                   >
                     Close
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Save Changes
                   </button>
                 </div>

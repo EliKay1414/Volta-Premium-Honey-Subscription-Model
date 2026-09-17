@@ -526,7 +526,7 @@ const DeliveryPage: FC = () => {
       header: 'Region',
       accessor: 'region',
       render: (item) => (
-        <span className='badge badge-light fw-bold text-gray-800 text-nowrap'>
+        <span className='text-gray-800 fs-7 text-nowrap'>
           {item.region}
         </span>
       ),
@@ -555,65 +555,65 @@ const DeliveryPage: FC = () => {
       <PageTitle breadcrumbs={[]}>Delivery</PageTitle>
 
       {/* Summary Cards */}
-      <div className='row g-5 g-xl-8 mb-6'>
-        <div className='col-sm-6 col-xl-3'>
+      <div className='row g-4 g-xl-6 mb-6'>
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body d-flex align-items-center justify-content-between p-5'>
+            <div className='card-body d-flex align-items-center justify-content-between p-4 p-md-5'>
               <div>
                 <span className='text-muted fs-7 fw-bold d-block'>Total Deliveries</span>
-                <span className='fs-2hx fw-bolder text-gray-900'>{deliveries.length}</span>
+                <span className='fs-2 fs-md-2hx fw-bolder text-gray-900'>{deliveries.length}</span>
               </div>
-              <div className='symbol symbol-45px bg-light-primary'>
+              <div className='symbol symbol-40px symbol-md-45px bg-light-primary'>
                 <span className='symbol-label'>
-                  <Truck size={22} className='text-primary' />
+                  <Truck size={20} className='text-primary' />
                 </span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className='col-sm-6 col-xl-3'>
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body d-flex align-items-center justify-content-between p-5'>
+            <div className='card-body d-flex align-items-center justify-content-between p-4 p-md-5'>
               <div>
                 <span className='text-muted fs-7 fw-bold d-block'>Delivered</span>
-                <span className='fs-2hx fw-bolder text-success'>{deliveredCount}</span>
+                <span className='fs-2 fs-md-2hx fw-bolder text-success'>{deliveredCount}</span>
               </div>
-              <div className='symbol symbol-45px bg-light-success'>
+              <div className='symbol symbol-40px symbol-md-45px bg-light-success'>
                 <span className='symbol-label'>
-                  <CheckCircle size={22} className='text-success' />
+                  <CheckCircle size={20} className='text-success' />
                 </span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className='col-sm-6 col-xl-3'>
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body d-flex align-items-center justify-content-between p-5'>
+            <div className='card-body d-flex align-items-center justify-content-between p-4 p-md-5'>
               <div>
                 <span className='text-muted fs-7 fw-bold d-block'>On the Way</span>
-                <span className='fs-2hx fw-bolder text-primary'>{onTheWayCount}</span>
+                <span className='fs-2 fs-md-2hx fw-bolder text-primary'>{onTheWayCount}</span>
               </div>
-              <div className='symbol symbol-45px bg-light-primary'>
+              <div className='symbol symbol-40px symbol-md-45px bg-light-primary'>
                 <span className='symbol-label'>
-                  <Truck size={22} className='text-primary' />
+                  <Truck size={20} className='text-primary' />
                 </span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className='col-sm-6 col-xl-3'>
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body d-flex align-items-center justify-content-between p-5'>
+            <div className='card-body d-flex align-items-center justify-content-between p-4 p-md-5'>
               <div>
-                <span className='text-muted fs-7 fw-bold d-block'>Vendor Deliveries</span>
-                <span className='fs-2hx fw-bolder text-warning'>{vendorCount}</span>
+                <span className='text-muted fs-7 fw-bold d-block'>Vendor Orders</span>
+                <span className='fs-2 fs-md-2hx fw-bolder text-warning'>{vendorCount}</span>
               </div>
-              <div className='symbol symbol-45px bg-light-warning'>
+              <div className='symbol symbol-40px symbol-md-45px bg-light-warning'>
                 <span className='symbol-label'>
-                  <Building2 size={22} className='text-warning' />
+                  <Building2 size={20} className='text-warning' />
                 </span>
               </div>
             </div>
@@ -623,14 +623,14 @@ const DeliveryPage: FC = () => {
 
       {/* Main Delivery Table */}
       <div className='card mb-5 mb-xl-8'>
-        <div className='card-header border-0 pt-5'>
+        <div className='card-header border-0 pt-5 flex-wrap gap-2'>
           <h3 className='card-title align-items-start flex-column'>
             <span className='card-label fw-bold fs-3 mb-1'>Delivery Schedule & Logistics</span>
             <span className='text-muted mt-1 fw-semibold fs-7'>
               Deliveries for Vendors, Subscribers, and Direct Buyers with bottle size, schedule, and delivery fees
             </span>
           </h3>
-          <div className='card-toolbar d-flex gap-2'>
+          <div className='card-toolbar d-flex flex-wrap gap-2'>
             <button
               type='button'
               onClick={() => setIsScheduleModalOpen(true)}
@@ -732,33 +732,35 @@ const DeliveryPage: FC = () => {
       {/* MODAL 1: Schedule Delivery Modal */}
       {isScheduleModalOpen && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-700px'>
-            <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
+          <div className='modal-dialog modal-dialog-centered mw-700px w-100 mx-auto'>
+            <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
                 <div>
                   <h3 className='fw-bolder text-gray-900 fs-4 mb-1'>Schedule Honey Delivery</h3>
                   <span className='text-muted fs-7'>Assign product, plan, perimeter distance fee and dispatch rider</span>
                 </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
                   onClick={() => setIsScheduleModalOpen(false)}
+                  aria-label='Close'
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleScheduleDelivery}>
-                <div className='modal-body pt-4 pb-6 px-8' style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   {/* Section 1: Recipient Information */}
-                  <div className='mb-6'>
-                    <div className='d-flex align-items-center mb-3'>
-                      <span className='badge badge-circle badge-light-primary fw-bolder me-2'>1</span>
-                      <h5 className='text-dark fw-bold mb-0'>Recipient Information</h5>
+                  <div className='mb-5'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
+                      <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
+                        1. Recipient Information
+                      </span>
                     </div>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Recipient Type</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Recipient Type</label>
                         <select
                           className='form-select form-select-solid'
                           value={newDelivery.recipientType}
@@ -775,8 +777,8 @@ const DeliveryPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>
                           {newDelivery.recipientType === 'Vendor' ? 'Vendor / Mart Name' : 'Recipient Name'}
                         </label>
                         <input
@@ -789,8 +791,8 @@ const DeliveryPage: FC = () => {
                         />
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Phone Number</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Phone Number</label>
                         <input
                           type='tel'
                           className='form-control form-control-solid'
@@ -801,8 +803,8 @@ const DeliveryPage: FC = () => {
                         />
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Region</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Region</label>
                         <select
                           className='form-select form-select-solid'
                           value={newDelivery.region}
@@ -819,14 +821,15 @@ const DeliveryPage: FC = () => {
                   </div>
 
                   {/* Section 2: Order & Product Specification */}
-                  <div className='mb-6'>
-                    <div className='d-flex align-items-center mb-3'>
-                      <span className='badge badge-circle badge-light-primary fw-bolder me-2'>2</span>
-                      <h5 className='text-dark fw-bold mb-0'>Order & Product Specification</h5>
+                  <div className='mb-5'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
+                      <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
+                        2. Order & Product Specification
+                      </span>
                     </div>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Selected Plan</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Selected Plan</label>
                         <select
                           className='form-select form-select-solid'
                           value={newDelivery.planType}
@@ -844,8 +847,8 @@ const DeliveryPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Delivery Frequency</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
                           value={newDelivery.frequency}
@@ -864,8 +867,8 @@ const DeliveryPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Bottle Product</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Bottle Product</label>
                         <select
                           className='form-select form-select-solid'
                           value={newDelivery.bottleType}
@@ -881,8 +884,8 @@ const DeliveryPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>
                           Quantity (Bottles)
                         </label>
                         <div className='input-group mb-2'>
@@ -906,7 +909,7 @@ const DeliveryPage: FC = () => {
                             placeholder='Custom quantity'
                             value={newDelivery.numberOfBottles}
                             onChange={(e) => {
-                              const val = parseInt(e.target.value, 10)
+                                const val = parseInt(e.target.value, 10)
                               setNewDelivery((prev) => ({
                                 ...prev,
                                 numberOfBottles: isNaN(val) ? 1 : Math.max(1, val),
@@ -932,14 +935,15 @@ const DeliveryPage: FC = () => {
                   </div>
 
                   {/* Section 3: Delivery Location & Perimeter Distance */}
-                  <div className='mb-6'>
-                    <div className='d-flex align-items-center mb-3'>
-                      <span className='badge badge-circle badge-light-primary fw-bolder me-2'>3</span>
-                      <h5 className='text-dark fw-bold mb-0'>Location & Perimeter Distance</h5>
+                  <div className='mb-5'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
+                      <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
+                        3. Location & Perimeter Distance
+                      </span>
                     </div>
                     <div className='row g-4'>
                       <div className='col-12'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Delivery Address & Landmark</label>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Delivery Address & Landmark</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -952,8 +956,8 @@ const DeliveryPage: FC = () => {
 
                       <div className='col-12'>
                         <div className='card bg-light-primary border border-primary border-opacity-25 p-4 rounded-3'>
-                          <div className='d-flex align-items-center justify-content-between mb-2'>
-                            <label className='form-label fw-bold text-gray-800 fs-7 mb-0 d-flex align-items-center'>
+                          <div className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2 mb-2'>
+                            <label className='form-label fw-semibold text-gray-800 fs-7 mb-0 d-flex align-items-center'>
                               <Navigation size={15} className='text-primary me-2' />
                               Perimeter Distance (3-Tier Fee Structure)
                             </label>
@@ -981,14 +985,15 @@ const DeliveryPage: FC = () => {
                   </div>
 
                   {/* Section 4: Rider Assignment & Initial Status */}
-                  <div className='mb-6'>
-                    <div className='d-flex align-items-center mb-3'>
-                      <span className='badge badge-circle badge-light-primary fw-bolder me-2'>4</span>
-                      <h5 className='text-dark fw-bold mb-0'>Rider Assignment & Status</h5>
+                  <div className='mb-5'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
+                      <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
+                        4. Rider Assignment & Status
+                      </span>
                     </div>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Assigned Dispatch Rider</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Assigned Dispatch Rider</label>
                         <select
                           className='form-select form-select-solid'
                           value={newDelivery.riderName}
@@ -1010,8 +1015,8 @@ const DeliveryPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7'>Initial Dispatch Status</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7'>Initial Dispatch Status</label>
                         <select
                           className='form-select form-select-solid'
                           value={newDelivery.status}
@@ -1031,14 +1036,14 @@ const DeliveryPage: FC = () => {
 
                   {/* Summary Card */}
                   <div className='card bg-light-primary border-primary border border-dashed p-4 rounded-3 mb-2'>
-                    <div className='d-flex flex-row align-items-center justify-content-between'>
+                    <div className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                       <div>
                         <div className='fw-bolder text-gray-800 fs-7'>Delivery Summary:</div>
                         <div className='text-gray-700 fw-semibold fs-8'>
                           {newDelivery.numberOfBottles} × {newDelivery.bottleType} (<span className='product-code-tag'>Product Code: {newDelivery.bottleType === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}</span>) • {newDelivery.planType}
                         </div>
                       </div>
-                      <div className='text-end'>
+                      <div className='text-sm-end'>
                         <div className='fs-3 fw-bolder text-primary'>
                           {PERIMETER_FEE_MAP[newDelivery.perimeterTier]}
                         </div>
@@ -1048,7 +1053,7 @@ const DeliveryPage: FC = () => {
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -1056,7 +1061,7 @@ const DeliveryPage: FC = () => {
                   >
                     Cancel
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Schedule Delivery
                   </button>
                 </div>
@@ -1069,75 +1074,79 @@ const DeliveryPage: FC = () => {
       {/* MODAL 2: Delivery Details Modal */}
       {selectedDelivery && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-650px'>
-            <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
-                <div className='d-flex align-items-center gap-3'>
-                  <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>
-                    Delivery {selectedDelivery.trackingCode}
-                  </h3>
-                  <span
-                    className={`badge badge-light-${
-                      selectedDelivery.status === 'Delivered'
-                        ? 'success'
-                        : selectedDelivery.status === 'On the Way'
-                        ? 'primary'
-                        : 'warning'
-                    } fw-bold`}
-                  >
-                    {selectedDelivery.status}
-                  </span>
+          <div className='modal-dialog modal-dialog-centered mw-650px w-100 mx-auto'>
+            <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
+                <div>
+                  <div className='d-flex flex-wrap align-items-center gap-2 mb-1'>
+                    <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>
+                      Delivery {selectedDelivery.trackingCode}
+                    </h3>
+                    <span
+                      className={`badge badge-light-${
+                        selectedDelivery.status === 'Delivered'
+                          ? 'success'
+                          : selectedDelivery.status === 'On the Way'
+                          ? 'primary'
+                          : 'warning'
+                      } fw-bold`}
+                    >
+                      {selectedDelivery.status}
+                    </span>
+                  </div>
+                  <span className='text-muted fs-7'>Delivery dispatch details and rider assignment</span>
                 </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
                   onClick={() => setSelectedDelivery(null)}
+                  aria-label='Close'
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleSaveDeliveryDetails}>
-                <div className='modal-body pt-4 pb-6 px-8' style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
-                  <div className='card bg-light p-4 mb-4 rounded-3 border-0'>
-                    <div className='row g-3'>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>RECIPIENT & TYPE</div>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
+                  <div className='card bg-light p-4 mb-4 rounded-3 border border-gray-200'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>RECIPIENT & TYPE</div>
                         <div className='fw-bolder text-gray-900 fs-6'>{selectedDelivery.recipientName}</div>
                         <span className='badge badge-light-primary fw-bold fs-9 mt-1'>{selectedDelivery.recipientType}</span>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>PHONE</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>PHONE</div>
                         <div className='fw-bold text-gray-800 fs-7'>{selectedDelivery.phoneNumber}</div>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>PLAN & FREQUENCY</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>PLAN & FREQUENCY</div>
                         <div className='fw-bold text-gray-900 fs-7'>{selectedDelivery.planType}</div>
                         <span className='text-muted fs-8'>{selectedDelivery.frequency}</span>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>BOTTLE & PRODUCT CODE</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>BOTTLE & PRODUCT CODE</div>
                         <div className='fw-bold text-primary fs-7'>{selectedDelivery.honeyPackage}</div>
                         <span className='badge badge-light-primary fw-bold fs-8 product-code-badge mt-1'>Product Code: {selectedDelivery.sku}</span>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>REGION</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>REGION</div>
                         <div className='fw-bold text-gray-800 fs-7'>{selectedDelivery.region}</div>
                       </div>
-                      <div className='col-6'>
-                        <div className='text-muted fs-8 fw-bold'>DELIVERY FEE</div>
+                      <div className='col-12 col-sm-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>DELIVERY FEE</div>
                         <div className='fw-bolder text-primary fs-6'>{selectedDelivery.deliveryFeeGHS}</div>
                         <span className='text-muted fs-9'>{selectedDelivery.perimeterTier}</span>
                       </div>
                       <div className='col-12'>
-                        <div className='text-muted fs-8 fw-bold'>DELIVERY ADDRESS & LANDMARK</div>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>DELIVERY ADDRESS & LANDMARK</div>
                         <div className='fw-bold text-gray-800 fs-7 d-flex align-items-center mt-1'>
                           <MapPin size={14} className='text-primary me-1.5 flex-shrink-0' />
                           {selectedDelivery.landmark}
                         </div>
                       </div>
                       <div className='col-12'>
-                        <div className='text-muted fs-8 fw-bold'>ASSIGNED RIDER CONTACT</div>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>ASSIGNED RIDER CONTACT</div>
                         <div className='fw-bold text-gray-800 fs-7 d-flex align-items-center mt-1'>
                           <Phone size={14} className='text-success me-1.5 flex-shrink-0' />
                           {selectedDelivery.riderName} ({selectedDelivery.riderPhone})
@@ -1147,8 +1156,8 @@ const DeliveryPage: FC = () => {
                   </div>
 
                   <div className='row g-4'>
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7'>Update Status</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7'>Update Status</label>
                       <select
                         className='form-select form-select-solid'
                         value={selectedDelivery.status}
@@ -1165,8 +1174,8 @@ const DeliveryPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7'>Adjust Perimeter Tier</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7'>Adjust Perimeter Tier</label>
                       <select
                         className='form-select form-select-solid'
                         value={selectedDelivery.perimeterTier}
@@ -1186,7 +1195,7 @@ const DeliveryPage: FC = () => {
                   </div>
 
                   {selectedDelivery.status !== 'Delivered' && (
-                    <div className='mt-5 pt-4 border-top d-flex align-items-center justify-content-between'>
+                    <div className='mt-5 pt-4 border-top border-gray-200 d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                       <div>
                         <div className='fw-bold text-gray-800 fs-7'>Quick Completion</div>
                         <div className='text-muted fs-8'>Mark package as delivered to recipient</div>
@@ -1203,7 +1212,7 @@ const DeliveryPage: FC = () => {
                   )}
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -1211,7 +1220,7 @@ const DeliveryPage: FC = () => {
                   >
                     Close
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Save Changes
                   </button>
                 </div>

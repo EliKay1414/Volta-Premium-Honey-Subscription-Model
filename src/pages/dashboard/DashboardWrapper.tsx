@@ -454,7 +454,7 @@ const DashboardPage: FC = () => {
       header: 'Gender',
       accessor: 'gender',
       render: (item) => (
-        <span className='badge badge-light fw-bold text-gray-700 fs-8'>
+        <span className='text-gray-700 fw-medium fs-7'>
           {item.gender}
         </span>
       ),
@@ -565,7 +565,7 @@ const DashboardPage: FC = () => {
       header: 'Region',
       accessor: 'region',
       render: (item) => (
-        <span className='badge badge-light fw-bold text-gray-800 text-nowrap'>
+        <span className='text-gray-800 fw-medium fs-7 text-nowrap'>
           {item.region}
         </span>
       ),
@@ -596,25 +596,25 @@ const DashboardPage: FC = () => {
     <>
       {/* Welcome Banner */}
       <div className='card card-flush mb-6 bg-light-primary border border-primary border-dashed'>
-        <div className='card-body py-6'>
-          <div className='d-flex align-items-center justify-content-between flex-wrap gap-4'>
+        <div className='card-body p-5 p-md-6'>
+          <div className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-4'>
             <div>
-              <h2 className='text-gray-900 fw-bolder mb-1'>Honey Subscriptions Overview</h2>
-              <p className='text-muted fs-6 mb-0'>
+              <h2 className='text-gray-900 fw-bolder fs-2 fs-md-1 mb-1'>Honey Subscriptions Overview</h2>
+              <p className='text-muted fs-7 fs-md-6 mb-0'>
                 Track your honey subscribers, deliveries, and sales performance in one place.
               </p>
             </div>
-            <div className='d-flex gap-3'>
+            <div className='d-flex flex-wrap flex-sm-nowrap gap-2 gap-sm-3 w-100 w-sm-auto'>
               <button
                 type='button'
-                className='btn btn-sm btn-light-primary fw-bold'
+                className='btn btn-sm btn-light-primary fw-bold flex-fill flex-sm-grow-0'
                 onClick={handleQuickOrder}
               >
                 <ShoppingCart size={16} className='me-1' /> Record Sale
               </button>
               <button
                 type='button'
-                className='btn btn-sm btn-primary fw-bold'
+                className='btn btn-sm btn-primary fw-bold flex-fill flex-sm-grow-0'
                 onClick={() => setIsAddSubscriberModalOpen(true)}
               >
                 <Plus size={16} className='me-1' /> Add Subscriber
@@ -624,90 +624,90 @@ const DashboardPage: FC = () => {
         </div>
       </div>
 
-      {/* Summary Stat Cards */}
-      <div className='row g-5 g-xl-8 mb-6'>
+      {/* Summary Stat Cards - Clean 2x2 grid on mobile, 4 columns on desktop */}
+      <div className='row g-3 g-md-6 mb-6'>
         {/* Active Subscribers */}
-        <div className='col-sm-6 col-xl-3'>
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body p-6 d-flex flex-column justify-content-between'>
-              <div className='d-flex align-items-start justify-content-between mb-3'>
+            <div className='card-body p-4 p-md-6 d-flex flex-column justify-content-between'>
+              <div className='d-flex align-items-start justify-content-between mb-2 mb-md-3'>
                 <div>
-                  <span className='text-gray-500 fs-7 fw-bold d-block mb-1'>Active Subscribers</span>
-                  <span className='fs-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>{activeSubscribersCount.toLocaleString()}</span>
+                  <span className='text-gray-500 fs-8 fs-md-7 fw-bold d-block mb-1'>Active Subscribers</span>
+                  <span className='fs-2 fs-md-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>{activeSubscribersCount.toLocaleString()}</span>
                 </div>
-                <div className='symbol symbol-45px bg-light-primary flex-shrink-0 ms-2'>
+                <div className='symbol symbol-35px symbol-md-45px bg-light-primary flex-shrink-0 ms-2'>
                   <span className='symbol-label'>
-                    <Users size={22} className='text-primary' />
+                    <Users size={18} className='text-primary' />
                   </span>
                 </div>
               </div>
-              <div className='d-flex align-items-center flex-wrap gap-2 pt-2'>
-                <span className='badge badge-light-success fs-8 fw-bolder'>{activePercent}% active</span>
-                <span className='text-muted fs-7'>of {totalSubscribersCount.toLocaleString()} total members</span>
+              <div className='d-flex align-items-center flex-wrap gap-1 gap-md-2 pt-1 pt-md-2'>
+                <span className='badge badge-light-success fs-9 fs-md-8 fw-bold'>{activePercent}% active</span>
+                <span className='text-muted fs-9 fs-md-7 d-none d-sm-inline'>of {totalSubscribersCount.toLocaleString()} total</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottles Delivered */}
-        <div className='col-sm-6 col-xl-3'>
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body p-6 d-flex flex-column justify-content-between'>
-              <div className='d-flex align-items-start justify-content-between mb-3'>
+            <div className='card-body p-4 p-md-6 d-flex flex-column justify-content-between'>
+              <div className='d-flex align-items-start justify-content-between mb-2 mb-md-3'>
                 <div>
-                  <span className='text-gray-500 fs-7 fw-bold d-block mb-1'>Bottles Delivered</span>
-                  <span className='fs-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>{totalBottlesDelivered.toLocaleString()}</span>
+                  <span className='text-gray-500 fs-8 fs-md-7 fw-bold d-block mb-1'>Bottles Delivered</span>
+                  <span className='fs-2 fs-md-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>{totalBottlesDelivered.toLocaleString()}</span>
                 </div>
-                <div className='symbol symbol-45px bg-light-success flex-shrink-0 ms-2'>
+                <div className='symbol symbol-35px symbol-md-45px bg-light-success flex-shrink-0 ms-2'>
                   <span className='symbol-label'>
-                    <Package size={22} className='text-success' />
+                    <Package size={18} className='text-success' />
                   </span>
                 </div>
               </div>
-              <div className='d-flex align-items-center flex-wrap gap-2 pt-2'>
-                <span className='badge badge-light-success fs-8 fw-bolder'>Live</span>
-                <span className='text-muted fs-7'>across orders & subscribers</span>
+              <div className='d-flex align-items-center flex-wrap gap-1 gap-md-2 pt-1 pt-md-2'>
+                <span className='badge badge-light-success fs-9 fs-md-8 fw-bold'>Live</span>
+                <span className='text-muted fs-9 fs-md-7 d-none d-sm-inline'>fulfilled bottles</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Monthly Revenue in Ghana Cedis */}
-        <div className='col-sm-6 col-xl-3'>
+        {/* Monthly Honey Sales */}
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body p-6 d-flex flex-column justify-content-between'>
-              <div className='d-flex align-items-start justify-content-between mb-3'>
+            <div className='card-body p-4 p-md-6 d-flex flex-column justify-content-between'>
+              <div className='d-flex align-items-start justify-content-between mb-2 mb-md-3'>
                 <div>
-                  <span className='text-gray-500 fs-7 fw-bold d-block mb-1'>Monthly Honey Sales</span>
-                  <span className='fs-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>GH₵ {monthlySales.toLocaleString()}</span>
+                  <span className='text-gray-500 fs-8 fs-md-7 fw-bold d-block mb-1'>Monthly Sales</span>
+                  <span className='fs-2 fs-md-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>GH₵ {monthlySales.toLocaleString()}</span>
                 </div>
               </div>
-              <div className='d-flex align-items-center flex-wrap gap-2 pt-2'>
-                <span className='badge badge-light-success fs-8 fw-bolder'>Active</span>
-                <span className='text-muted fs-7'>current monthly recurring value</span>
+              <div className='d-flex align-items-center flex-wrap gap-1 gap-md-2 pt-1 pt-md-2'>
+                <span className='badge badge-light-success fs-9 fs-md-8 fw-bold'>Active</span>
+                <span className='text-muted fs-9 fs-md-7 d-none d-sm-inline'>monthly recurring</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Repeat Buyer Rate */}
-        <div className='col-sm-6 col-xl-3'>
+        <div className='col-6 col-xl-3'>
           <div className='card card-flush h-100 shadow-sm'>
-            <div className='card-body p-6 d-flex flex-column justify-content-between'>
-              <div className='d-flex align-items-start justify-content-between mb-3'>
+            <div className='card-body p-4 p-md-6 d-flex flex-column justify-content-between'>
+              <div className='d-flex align-items-start justify-content-between mb-2 mb-md-3'>
                 <div>
-                  <span className='text-gray-500 fs-7 fw-bold d-block mb-1'>Repeat Buyer Rate</span>
-                  <span className='fs-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>{repeatRate}%</span>
+                  <span className='text-gray-500 fs-8 fs-md-7 fw-bold d-block mb-1'>Repeat Rate</span>
+                  <span className='fs-2 fs-md-2hx fw-bolder text-gray-900 lh-1 text-nowrap'>{repeatRate}%</span>
                 </div>
-                <div className='symbol symbol-45px bg-light-info flex-shrink-0 ms-2'>
+                <div className='symbol symbol-35px symbol-md-45px bg-light-info flex-shrink-0 ms-2'>
                   <span className='symbol-label'>
-                    <Award size={22} className='text-info' />
+                    <Award size={18} className='text-info' />
                   </span>
                 </div>
               </div>
-              <div className='d-flex align-items-center flex-wrap gap-2 pt-2'>
-                <span className='badge badge-light-info fs-8 fw-bolder'>{repeatBuyersCount} repeat buyers</span>
-                <span className='text-muted fs-7'>loyal customer base</span>
+              <div className='d-flex align-items-center flex-wrap gap-1 gap-md-2 pt-1 pt-md-2'>
+                <span className='badge badge-light-info fs-9 fs-md-8 fw-bold'>{repeatBuyersCount} repeat</span>
+                <span className='text-muted fs-9 fs-md-7 d-none d-sm-inline'>loyal base</span>
               </div>
             </div>
           </div>
@@ -787,8 +787,8 @@ const DashboardPage: FC = () => {
 
             <div className='card-body pt-2'>
               {/* Search & Status Filter */}
-              <div className='d-flex flex-wrap align-items-center justify-content-between gap-3 mb-5'>
-                <div className='position-relative w-100 w-md-250px'>
+              <div className='d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center justify-content-between gap-3 mb-5'>
+                <div className='position-relative w-100 w-sm-250px'>
                   <input
                     type='text'
                     className='form-control form-control-solid ps-10 form-control-sm'
@@ -801,13 +801,13 @@ const DashboardPage: FC = () => {
                   </span>
                 </div>
 
-                <div className='d-flex gap-2'>
+                <div className='d-flex flex-wrap gap-1 gap-sm-2'>
                   {['All', 'Active', 'Trial', 'Paused'].map((status) => (
                     <button
                       key={status}
                       type='button'
-                      className={`btn btn-sm py-1 px-3 ${
-                        statusFilter === status ? 'btn-primary text-white' : 'btn-light'
+                      className={`btn btn-sm py-1.5 px-3 fs-7 fw-semibold ${
+                        statusFilter === status ? 'btn-primary text-white shadow-xs' : 'btn-light text-gray-700'
                       }`}
                       onClick={() => setStatusFilter(status)}
                     >
@@ -837,31 +837,34 @@ const DashboardPage: FC = () => {
       {/* MODAL 1: Add Subscriber Modal */}
       {isAddSubscriberModalOpen && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-600px'>
+          <div className='modal-dialog modal-dialog-centered mw-650px'>
             <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
-                <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>Add New Honey Subscriber</h3>
+              <div className='modal-header pb-2 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
+                <div>
+                  <h3 className='fw-bolder text-gray-900 fs-4 mb-1'>Add New Honey Subscriber</h3>
+                  <span className='text-muted fs-7'>Register subscriber details, bottle preference, and plan</span>
+                </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-sm btn-icon btn-active-light-primary rounded-circle'
                   onClick={() => setIsAddSubscriberModalOpen(false)}
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleAddSubscriberSubmit}>
-                <div className='modal-body py-6 px-8' style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   {/* Section 1: Personal Details */}
-                  <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                  <div className='mb-6'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         1. Personal Details
                       </span>
                     </div>
                     <div className='row g-4 mb-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Full Name</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Full Name</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -871,8 +874,8 @@ const DashboardPage: FC = () => {
                           onChange={(e) => setNewSub({...newSub, name: e.target.value})}
                         />
                       </div>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Phone Number</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Phone Number</label>
                         <input
                           type='tel'
                           className='form-control form-control-solid'
@@ -885,8 +888,8 @@ const DashboardPage: FC = () => {
                     </div>
 
                     <div className='row g-4'>
-                      <div className='col-md-4'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Gender</label>
+                      <div className='col-12 col-sm-4'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Gender</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.gender}
@@ -897,8 +900,8 @@ const DashboardPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-4'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Date of Birth (Dob)</label>
+                      <div className='col-12 col-sm-4'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Date of Birth (Dob)</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -909,8 +912,8 @@ const DashboardPage: FC = () => {
                         />
                       </div>
 
-                      <div className='col-md-4'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Region</label>
+                      <div className='col-12 col-sm-4'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Region</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.region}
@@ -927,15 +930,15 @@ const DashboardPage: FC = () => {
                   </div>
 
                   {/* Section 2: Plan & Subscription */}
-                  <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                  <div className='mb-6'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         2. Plan & Subscription
                       </span>
                     </div>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Chosen Plan</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Chosen Plan</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.planType}
@@ -952,8 +955,8 @@ const DashboardPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7'>Subscription Status</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7'>Subscription Status</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.status}
@@ -972,15 +975,15 @@ const DashboardPage: FC = () => {
                   </div>
 
                   {/* Section 3: Bottle Choice & Delivery Preferences */}
-                  <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                  <div className='mb-6'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         3. Bottle & Delivery Options
                       </span>
                     </div>
                     <div className='row g-4 mb-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Bottle Size</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.bottleChoice}
@@ -991,13 +994,16 @@ const DashboardPage: FC = () => {
                             })
                           }
                         >
-                          <option value='500g plastic bottles'>500g plastic bottles (Large • Product Code: VIV-500-PL • GH₵ 100 each)</option>
-                          <option value='330g plastic bottles'>330g plastic bottles (Regular • Product Code: VIV-330-PL • GH₵ 85 each)</option>
+                          <option value='500g plastic bottles'>500g plastic bottles (GH₵ 100 • Large)</option>
+                          <option value='330g plastic bottles'>330g plastic bottles (GH₵ 85 • Regular)</option>
                         </select>
+                        <div className='form-text fs-8 text-muted mt-1'>
+                          Product Code: {newSub.bottleChoice === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}
+                        </div>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Delivery Frequency</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.frequency}
@@ -1014,7 +1020,7 @@ const DashboardPage: FC = () => {
 
                     <div className='row g-4'>
                       <div className='col-12'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Quantity (Bottles per delivery)</label>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Quantity (Bottles per delivery)</label>
                         <div className='d-flex align-items-center gap-2 mb-2'>
                           <div className='input-group input-group-solid' style={{maxWidth: '140px'}}>
                             <button
@@ -1050,15 +1056,15 @@ const DashboardPage: FC = () => {
                   </div>
 
                   {/* Section 4: Payment Details */}
-                  <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                  <div className='mb-6'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         4. Payment & Delivery Address
                       </span>
                     </div>
                     <div className='row g-4 mb-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Payment Method</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Payment Method</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.paymentMethod}
@@ -1071,8 +1077,8 @@ const DashboardPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7 required'>Payment Status</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7 required'>Payment Status</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.paymentStatus}
@@ -1091,8 +1097,8 @@ const DashboardPage: FC = () => {
                     </div>
 
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold text-gray-800 fs-7'>Delivery Landmark / Exact Address</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold text-gray-800 fs-7'>Delivery Landmark / Exact Address</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -1101,7 +1107,7 @@ const DashboardPage: FC = () => {
                           onChange={(e) => setNewSub({...newSub, landmark: e.target.value})}
                         />
                       </div>
-                      <div className='col-md-6'>
+                      <div className='col-12 col-md-6'>
                         <DeliveryCalendarPicker
                           value={newSub.nextDelivery}
                           onChange={(date) => setNewSub({...newSub, nextDelivery: date})}
@@ -1113,16 +1119,16 @@ const DashboardPage: FC = () => {
 
                   {/* Calculated Bill Summary Card */}
                   <div className='card bg-light-primary border-primary border border-dashed p-4 rounded-3 mb-2'>
-                    <div className='d-flex align-items-center justify-content-between'>
+                    <div className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                       <div>
                         <div className='fw-bolder text-gray-800 fs-7'>
                           {newSub.planType === 'Annual Plan' ? 'Estimated Annual Bill (10% Saver):' : 'Estimated Monthly Fee:'}
                         </div>
-                        <div className='text-gray-700 fw-semibold fs-8'>
+                        <div className='text-gray-700 fw-semibold fs-8 mt-0.5'>
                           {newSub.monthlyCount} × {newSub.bottleChoice} (<span className='product-code-tag'>Product Code: {newSub.bottleChoice === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}</span>) • {newSub.planType} • {newSub.frequency}
                         </div>
                       </div>
-                      <div className='fs-3 fw-bolder text-primary'>
+                      <div className='fs-3 fw-bolder text-primary text-nowrap'>
                         {newSub.status === 'Trial' || newSub.planType === 'Free Trial'
                           ? 'Free Trial'
                           : `GH₵ ${(
@@ -1141,7 +1147,7 @@ const DashboardPage: FC = () => {
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 pb-5 pb-md-6 px-5 px-md-8 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -1149,7 +1155,7 @@ const DashboardPage: FC = () => {
                   >
                     Cancel
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Add Subscriber
                   </button>
                 </div>
@@ -1164,25 +1170,24 @@ const DashboardPage: FC = () => {
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
           <div className='modal-dialog modal-dialog-centered mw-600px'>
             <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
-                <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>Update Bottling Schedule</h3>
+              <div className='modal-header pb-2 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
+                <div>
+                  <h3 className='fw-bolder text-gray-900 fs-4 mb-1'>Update Bottling Schedule</h3>
+                  <span className='text-muted fs-7'>Set bottling dates and targets for honey packing</span>
+                </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-sm btn-icon btn-active-light-primary rounded-circle'
                   onClick={() => setIsBottlingModalOpen(false)}
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleSaveBottlingSchedule}>
-                <div className='modal-body pt-4 pb-6 px-8'>
-                  <p className='text-muted fs-7 mb-5'>
-                    Set bottling dates and targets for honey packing.
-                  </p>
-
+                <div className='modal-body py-4 py-md-5 px-5 px-md-8'>
                   <div className='row g-4'>
-                    <div className='col-md-6'>
+                    <div className='col-12 col-md-6'>
                       <DeliveryCalendarPicker
                         value={bottlingSchedule.date}
                         onChange={(date) => setBottlingSchedule({...bottlingSchedule, date})}
@@ -1191,8 +1196,8 @@ const DashboardPage: FC = () => {
                       />
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold text-gray-800 fs-7 required'>Batch Target (Bottles)</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold text-gray-800 fs-7 required'>Batch Target (Bottles)</label>
                       <input
                         type='text'
                         className='form-control form-control-solid'
@@ -1203,18 +1208,19 @@ const DashboardPage: FC = () => {
                     </div>
 
                     <div className='col-12'>
-                      <label className='form-label fw-bold text-gray-800 fs-7'>Bottling Supervisor Notes</label>
+                      <label className='form-label fw-semibold text-gray-800 fs-7'>Bottling Supervisor Notes</label>
                       <textarea
                         rows={3}
                         className='form-control form-control-solid'
                         value={bottlingSchedule.note}
                         onChange={(e) => setBottlingSchedule({...bottlingSchedule, note: e.target.value})}
+                        placeholder='Add any operational notes or instructions...'
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end gap-2'>
+                <div className='modal-footer border-0 pt-0 pb-5 pb-md-6 px-5 px-md-8 justify-content-end gap-2'>
                   <button
                     type='button'
                     className='btn btn-light'
@@ -1222,7 +1228,7 @@ const DashboardPage: FC = () => {
                   >
                     Cancel
                   </button>
-                  <button type='submit' className='btn btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Save Schedule
                   </button>
                 </div>
@@ -1235,172 +1241,143 @@ const DashboardPage: FC = () => {
       {/* MODAL 3: View & Manage Subscriber Modal */}
       {selectedSubscriber && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-600px'>
+          <div className='modal-dialog modal-dialog-centered mw-650px'>
             <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
+              {/* Header */}
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
                 <div className='d-flex align-items-center gap-3'>
-                  <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>
-                    {selectedSubscriber.name}
-                  </h3>
-                  <span
-                    className={`badge badge-light-${
-                      selectedSubscriber.status === 'Active'
-                        ? 'success'
-                        : selectedSubscriber.status === 'Trial'
-                        ? 'primary'
-                        : 'secondary'
-                    } fw-bold`}
-                  >
-                    {selectedSubscriber.status}
-                  </span>
+                  <div className='symbol symbol-45px'>
+                    <span className={`symbol-label bg-light-${selectedSubscriber.avatarColor} text-${selectedSubscriber.avatarColor} fw-bolder fs-5`}>
+                      {selectedSubscriber.name.split(' ').map((n) => n[0]).join('')}
+                    </span>
+                  </div>
+                  <div>
+                    <div className='d-flex align-items-center gap-2 flex-wrap'>
+                      <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>{selectedSubscriber.name}</h3>
+                      <span className={`badge badge-light-${selectedSubscriber.status === 'Active' ? 'success' : selectedSubscriber.status === 'Trial' ? 'primary' : 'secondary'} fw-bold fs-8`}>
+                        {selectedSubscriber.status}
+                      </span>
+                    </div>
+                    <span className='text-muted fs-7'>
+                      {selectedSubscriber.phoneNumber} • {selectedSubscriber.gender} • {selectedSubscriber.region}
+                    </span>
+                  </div>
                 </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-sm btn-icon btn-active-light-primary rounded-circle'
                   onClick={() => setSelectedSubscriber(null)}
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
-              <div className='modal-body pt-4 pb-6 px-8'>
-                <div className='card bg-light p-4 mb-5 rounded-3 border-0'>
-                  <div className='row g-3'>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>PHONE NUMBER</div>
-                      <div className='fw-bold text-gray-900 fs-7 d-flex align-items-center'>
-                        <Phone size={13} className='text-gray-400 me-2' />
-                        {selectedSubscriber.phoneNumber}
-                      </div>
+              <div className='modal-body py-4 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
+                {/* Details Section */}
+                <div className='bg-light rounded-3 p-4 p-md-5 mb-5 border border-gray-200'>
+                  <div className='row g-4'>
+                    <div className='col-12 col-sm-6'>
+                      <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Subscription Plan</div>
+                      <div className='fw-bold text-gray-900 fs-6'>{selectedSubscriber.planType}</div>
+                      <span className='text-success fw-bolder fs-7'>{selectedSubscriber.monthlyAmountGHS}</span>
                     </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>GENDER & DOB</div>
-                      <div className='fw-bold text-gray-900 fs-7'>
-                        {selectedSubscriber.gender} • {selectedSubscriber.dob}
-                      </div>
+
+                    <div className='col-12 col-sm-6'>
+                      <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Bottle & SKU</div>
+                      <div className='fw-bold text-primary fs-6'>{selectedSubscriber.bottleChoice}</div>
+                      <span className='product-code-badge mt-1'>Product Code: {selectedSubscriber.sku}</span>
                     </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>REGION</div>
-                      <div className='fw-bold text-gray-900 fs-7'>{selectedSubscriber.region}</div>
-                    </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>CHOSEN PLAN</div>
-                      <div className='fw-bold text-gray-900 fs-7'>{selectedSubscriber.planType}</div>
-                    </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>BOTTLE & PRODUCT CODE</div>
-                      <div className='fw-bold text-primary fs-7'>
-                        {selectedSubscriber.bottleChoice}
-                      </div>
-                      <span className='badge badge-light-primary fw-bold fs-8 product-code-badge mt-1'>Product Code: {selectedSubscriber.sku}</span>
-                    </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>QUANTITY & FREQUENCY</div>
-                      <div className='fw-bold text-gray-800 fs-7'>
+
+                    <div className='col-12 col-sm-6'>
+                      <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Quantity & Frequency</div>
+                      <div className='fw-bold text-gray-800 fs-6 d-flex align-items-center'>
+                        <Package size={14} className='text-primary me-1.5' />
                         {selectedSubscriber.quantity} Bottles • {selectedSubscriber.frequency}
                       </div>
                     </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>BILL AMOUNT</div>
-                      <div className='fw-bolder text-success fs-6'>{selectedSubscriber.monthlyAmountGHS}</div>
+
+                    <div className='col-12 col-sm-6'>
+                      <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Payment Follows</div>
+                      <div className='fw-bold text-gray-800 fs-6'>{selectedSubscriber.paymentStatus}</div>
+                      <span className='text-muted fs-8'>{selectedSubscriber.paymentMethod}</span>
                     </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold'>PAYMENT DETAILS</div>
-                      <div className='fw-bold text-gray-800 fs-7'>
-                        {selectedSubscriber.paymentStatus} ({selectedSubscriber.paymentMethod})
+
+                    <div className='col-12 col-sm-6'>
+                      <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Next Scheduled Delivery</div>
+                      <div className='fw-bold text-gray-900 fs-6 d-flex align-items-center'>
+                        <Calendar size={14} className='text-primary me-1.5' />
+                        {selectedSubscriber.nextDelivery || (selectedSubscriber as any).nextDeliveryDate || 'Not Scheduled'}
                       </div>
                     </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold mb-1'>NEXT DELIVERY SCHEDULE</div>
-                      <div className='d-flex align-items-center gap-2'>
-                        <div
-                          className='d-flex flex-column align-items-center justify-content-center bg-light-primary text-primary rounded-2 px-2 py-1.5 border border-primary border-opacity-25'
-                          style={{minWidth: '40px'}}
-                        >
-                          <Calendar size={14} className='text-primary' />
-                        </div>
-                        <div className='flex-grow-1'>
-                          <div className='fw-bolder text-gray-900 fs-7'>
-                            {selectedSubscriber.nextDelivery || (selectedSubscriber as any).nextDeliveryDate || 'Not Scheduled'}
-                          </div>
-                          <div className='text-muted fs-9'>Scheduled via Vivaldi Dispatch</div>
-                        </div>
+
+                    <div className='col-12 col-sm-6'>
+                      <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Delivery Landmark</div>
+                      <div className='fw-bold text-gray-800 fs-6'>
+                        {(selectedSubscriber as any).landmark || selectedSubscriber.region + ' Address'}
                       </div>
-                    </div>
-                    <div className='col-6'>
-                      <div className='text-muted fs-8 fw-bold mb-1'>DELIVERY LANDMARK</div>
-                      <div className='fw-bold text-gray-900 fs-7'>
-                        {(selectedSubscriber as any).landmark || 'Greater Accra / Volta Address'}
-                      </div>
-                      <div className='text-muted fs-9'>Verified Destination</div>
                     </div>
                   </div>
                 </div>
 
-                <div className='d-flex flex-column gap-3'>
-                  {/* Next Delivery Reschedule with Calendar Component */}
-                  <div className='p-3 bg-body border border-secondary border-opacity-25 rounded-3'>
-                    <div className='row g-2 align-items-center'>
-                      <div className='col-sm-5'>
-                        <div className='fw-bold text-gray-800 fs-7'>Next Delivery Schedule</div>
-                        <div className='text-muted fs-8'>
-                          Current: <strong className='text-primary'>{selectedSubscriber.nextDelivery || (selectedSubscriber as any).nextDeliveryDate}</strong>
-                        </div>
-                      </div>
-                      <div className='col-sm-7'>
-                        <DeliveryCalendarPicker
-                          value={selectedSubscriber.nextDelivery || (selectedSubscriber as any).nextDeliveryDate || ''}
-                          onChange={handleUpdateSubscriberDelivery}
-                          placeholder='Choose delivery schedule'
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  {/* Status Toggle Button */}
-                  <div className='d-flex align-items-center justify-content-between p-3 bg-body border border-secondary border-opacity-25 rounded-3'>
-                    <div>
-                      <div className='fw-bold text-gray-800 fs-7'>Subscription Status</div>
-                      <div className='text-muted fs-8'>
-                        Currently: <strong>{selectedSubscriber.status}</strong>
-                      </div>
-                    </div>
-                    <button
-                      type='button'
-                      className={`btn btn-sm ${
-                        selectedSubscriber.status === 'Active' ? 'btn-light-warning' : 'btn-light-success'
-                      } fw-bold d-flex align-items-center`}
-                      onClick={() => handleToggleSubscriberStatus(selectedSubscriber.id)}
-                    >
-                      {selectedSubscriber.status === 'Active' ? (
-                        <>
-                          <PauseCircle size={14} className='me-1' /> Pause Subscription
-                        </>
-                      ) : (
-                        <>
-                          <PlayCircle size={14} className='me-1' /> Resume Subscription
-                        </>
-                      )}
-                    </button>
+                {/* Subscription Controls & Schedule */}
+                <div className='mb-2'>
+                  <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
+                    <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
+                      Subscription Actions & Schedule
+                    </span>
                   </div>
 
-                  {/* Instant Dispatch Button */}
-                  <div className='d-flex align-items-center justify-content-between p-3 bg-body border border-secondary border-opacity-25 rounded-3'>
-                    <div>
-                      <div className='fw-bold text-gray-800 fs-7'>Instant Dispatch</div>
-                      <div className='text-muted fs-8'>Send honey package for delivery right now</div>
+                  <div className='d-flex flex-column gap-3'>
+                    {/* Reschedule Picker */}
+                    <div className='p-3 bg-body border border-gray-200 rounded-3'>
+                      <div className='row g-2 align-items-center'>
+                        <div className='col-12 col-sm-5'>
+                          <div className='fw-semibold text-gray-800 fs-7'>Reschedule Delivery</div>
+                          <div className='text-muted fs-8'>Update upcoming delivery slot</div>
+                        </div>
+                        <div className='col-12 col-sm-7'>
+                          <DeliveryCalendarPicker
+                            value={selectedSubscriber.nextDelivery || (selectedSubscriber as any).nextDeliveryDate || ''}
+                            onChange={handleUpdateSubscriberDelivery}
+                            placeholder='Choose new delivery date'
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <button
-                      type='button'
-                      className='btn btn-sm btn-light-primary fw-bold d-flex align-items-center'
-                      onClick={() => handleDispatchDelivery(selectedSubscriber)}
-                    >
-                      <Truck size={14} className='me-1' /> Dispatch Delivery
-                    </button>
+
+                    {/* Operational Action Buttons */}
+                    <div className='d-flex flex-wrap gap-2 pt-1'>
+                      <button
+                        type='button'
+                        className={`btn btn-sm ${
+                          selectedSubscriber.status === 'Active' ? 'btn-light-warning' : 'btn-light-success'
+                        } fw-bold d-flex align-items-center flex-fill justify-content-center py-2.5`}
+                        onClick={() => handleToggleSubscriberStatus(selectedSubscriber.id)}
+                      >
+                        {selectedSubscriber.status === 'Active' ? (
+                          <>
+                            <PauseCircle size={15} className='me-1.5' /> Pause Subscription
+                          </>
+                        ) : (
+                          <>
+                            <PlayCircle size={15} className='me-1.5' /> Resume Subscription
+                          </>
+                        )}
+                      </button>
+
+                      <button
+                        type='button'
+                        className='btn btn-sm btn-light-primary fw-bold d-flex align-items-center flex-fill justify-content-center py-2.5'
+                        onClick={() => handleDispatchDelivery(selectedSubscriber)}
+                      >
+                        <Truck size={15} className='me-1.5' /> Instant Dispatch Delivery
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-end'>
+              <div className='modal-footer border-0 pt-0 pb-5 pb-md-6 px-5 px-md-8 justify-content-end'>
                 <button
                   type='button'
                   className='btn btn-light'

@@ -458,7 +458,7 @@ const SubscribersPage: FC = () => {
       header: 'Gender',
       accessor: 'gender',
       render: (item) => (
-        <span className='badge badge-light fw-bold text-gray-700 fs-8'>
+        <span className='text-gray-700 fw-medium fs-7'>
           {item.gender}
         </span>
       ),
@@ -587,7 +587,7 @@ const SubscribersPage: FC = () => {
       header: 'Region',
       accessor: 'region',
       render: (item) => (
-        <span className='badge badge-light fw-bold text-gray-800 text-nowrap'>
+        <span className='text-gray-800 fw-medium fs-7 text-nowrap'>
           {item.region}
         </span>
       ),
@@ -698,14 +698,14 @@ const SubscribersPage: FC = () => {
               </div>
             </div>
 
-            {/* Customer Type Filter Tabs (Single button group, no duplicate 'All') */}
-            <div className='btn-group'>
+            {/* Customer Type Filter Tabs */}
+            <div className='d-flex flex-wrap gap-1'>
               {(['All', 'Subscriber Only', 'Active Customer / Buyer'] as const).map((t) => (
                 <button
                   key={t}
                   type='button'
-                  className={`btn btn-sm ${
-                    typeFilter === t ? 'btn-primary' : 'btn-light'
+                  className={`btn btn-sm py-1.5 px-3 ${
+                    typeFilter === t ? 'btn-primary text-white shadow-xs' : 'btn-light text-gray-700'
                   } fw-semibold fs-8`}
                   onClick={() => setTypeFilter(t)}
                 >
@@ -735,7 +735,7 @@ const SubscribersPage: FC = () => {
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
           <div className='modal-dialog modal-dialog-centered mw-750px'>
             <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-3 border-0 justify-content-between pt-6 px-8'>
+              <div className='modal-header pb-2 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
                 <div>
                   <h3 className='fw-bolder text-gray-900 fs-4 mb-1'>Add New Honey Subscriber</h3>
                   <span className='text-muted fs-7'>Register subscriber details, bottle preference, delivery frequency, and plan</span>
@@ -743,24 +743,24 @@ const SubscribersPage: FC = () => {
                 <button
                   type='button'
                   onClick={() => setIsAddModalOpen(false)}
-                  className='btn btn-icon btn-sm btn-active-light rounded-circle'
+                  className='btn btn-icon btn-sm btn-active-light-primary rounded-circle'
                 >
                   <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleAddSubscriber}>
-                <div className='modal-body py-6 px-8' style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   {/* Section 1: Personal Information */}
-                  <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                  <div className='mb-6'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         1. Personal Details
                       </span>
                     </div>
                     <div className='row g-4 mb-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Buyer Full Name</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Buyer Full Name</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -770,8 +770,8 @@ const SubscribersPage: FC = () => {
                           required
                         />
                       </div>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Phone Number</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Phone Number</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -784,8 +784,8 @@ const SubscribersPage: FC = () => {
                     </div>
 
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Gender</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Gender</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.gender}
@@ -795,8 +795,8 @@ const SubscribersPage: FC = () => {
                           <option value='Female'>Female</option>
                         </select>
                       </div>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Date of Birth (Dob)</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Date of Birth (Dob)</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -810,16 +810,16 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 2: Bottle Preference & Delivery */}
-                  <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                  <div className='mb-6'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         2. Bottle & Delivery Preferences
                       </span>
                     </div>
 
                     <div className='row g-4 mb-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Bottle Size</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.bottleChoice}
@@ -830,13 +830,16 @@ const SubscribersPage: FC = () => {
                             })
                           }
                         >
-                          <option value='500g plastic bottles'>500g plastic bottles (Large • Product Code: VIV-500-PL • GH₵ 100 each)</option>
-                          <option value='330g plastic bottles'>330g plastic bottles (Regular • Product Code: VIV-330-PL • GH₵ 85 each)</option>
+                          <option value='500g plastic bottles'>500g plastic bottles (GH₵ 100 • Large)</option>
+                          <option value='330g plastic bottles'>330g plastic bottles (GH₵ 85 • Regular)</option>
                         </select>
+                        <div className='form-text fs-8 text-muted mt-1'>
+                          Product Code: {newSub.bottleChoice === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}
+                        </div>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Delivery Frequency</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.frequency}
@@ -852,8 +855,8 @@ const SubscribersPage: FC = () => {
                     </div>
 
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>
                           Quantity (Bottles per delivery)
                         </label>
                         <div className='input-group input-group-solid' style={{maxWidth: '140px'}}>
@@ -886,8 +889,8 @@ const SubscribersPage: FC = () => {
                         </div>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Plan Selection</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Plan Selection</label>
                         <select
                           className='form-select form-select-solid mb-3'
                           value={newSub.planType}
@@ -902,7 +905,7 @@ const SubscribersPage: FC = () => {
                           <option value='Annual Plan'>Annual Plan (Full year with 10% discount)</option>
                         </select>
 
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Classification</label>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Classification</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.customerType}
@@ -921,15 +924,15 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 3: Payment Details */}
-                  <div className='mb-5'>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                  <div className='mb-6'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         3. Payment Details
                       </span>
                     </div>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Payment Method</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Payment Method</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.paymentMethod}
@@ -942,8 +945,8 @@ const SubscribersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Payment Status</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Payment Status</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.paymentStatus}
@@ -958,16 +961,16 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Calculated Plan Fee Summary Card */}
-                  <div className='card bg-light-primary border-primary border border-dashed p-4 rounded-3 mb-5'>
-                    <div className='d-flex align-items-center justify-content-between'>
+                  <div className='card bg-light-primary border-primary border border-dashed p-4 rounded-3 mb-6'>
+                    <div className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                       <div>
                         <span className='fw-bold text-gray-800 fs-7 d-block'>Calculated Plan Fee:</span>
-                        <span className='text-gray-700 fw-semibold fs-8'>
+                        <span className='text-gray-700 fw-semibold fs-8 mt-0.5'>
                           {newSub.quantity} × {newSub.bottleChoice} (<span className='product-code-tag'>Product Code: {newSub.bottleChoice === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}</span>) • {newSub.planType} • {newSub.frequency}
                         </span>
                       </div>
-                      <div className='text-end'>
-                        <span className='fs-3 fw-bolder text-primary'>
+                      <div className='text-sm-end'>
+                        <span className='fs-3 fw-bolder text-primary text-nowrap'>
                           {calculatePlanBill(newSub.bottleChoice, newSub.quantity, newSub.planType)}
                         </span>
                       </div>
@@ -976,14 +979,14 @@ const SubscribersPage: FC = () => {
 
                   {/* Section 4: Support & Location */}
                   <div>
-                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom'>
+                    <div className='d-flex align-items-center mb-3 pb-1 border-bottom border-gray-200'>
                       <span className='fs-8 fw-bolder text-uppercase text-gray-500 tracking-wider'>
                         4. Support Desk & Delivery Address
                       </span>
                     </div>
                     <div className='row g-4 mb-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Customer Support Caller</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Customer Support Caller</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.supportAgent}
@@ -997,8 +1000,8 @@ const SubscribersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700 required'>Region (Ghana)</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Region (Ghana)</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.region}
@@ -1014,8 +1017,8 @@ const SubscribersPage: FC = () => {
                     </div>
 
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700'>Delivery Landmark / Address</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800'>Delivery Landmark / Address</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -1024,7 +1027,7 @@ const SubscribersPage: FC = () => {
                           onChange={(e) => setNewSub({...newSub, landmark: e.target.value})}
                         />
                       </div>
-                      <div className='col-md-6'>
+                      <div className='col-12 col-md-6'>
                         <DeliveryCalendarPicker
                           value={newSub.nextDeliveryDate}
                           onChange={(date) => setNewSub({...newSub, nextDeliveryDate: date})}
@@ -1035,15 +1038,15 @@ const SubscribersPage: FC = () => {
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 px-8 pb-6'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     onClick={() => setIsAddModalOpen(false)}
-                    className='btn btn-sm btn-light'
+                    className='btn btn-light'
                   >
                     Cancel
                   </button>
-                  <button type='submit' className='btn btn-sm btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Save Subscriber
                   </button>
                 </div>
@@ -1058,7 +1061,7 @@ const SubscribersPage: FC = () => {
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
           <div className='modal-dialog modal-dialog-centered mw-750px'>
             <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
+              <div className='modal-header pb-2 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
                 <div>
                   <h3 className='fw-bolder text-gray-900 fs-4 mb-1'>{managingSubscriber.name}</h3>
                   <span className='text-muted fs-7'>
@@ -1068,34 +1071,34 @@ const SubscribersPage: FC = () => {
                 <button
                   type='button'
                   onClick={() => setManagingSubscriber(null)}
-                  className='btn btn-icon btn-sm btn-active-light rounded-circle'
+                  className='btn btn-icon btn-sm btn-active-light-primary rounded-circle'
                 >
                   <X size={18} />
                 </button>
               </div>
 
               <form onSubmit={handleSaveManage}>
-                <div className='modal-body py-6 px-8' style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
-                  {/* Financial & Delivery Stats */}
-                  <div className='bg-light-primary rounded-3 p-4 mb-4 border border-primary border-opacity-25'>
+                <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
+                  {/* Financial & Delivery Stats: 2x2 grid on mobile, 4 columns on desktop */}
+                  <div className='bg-light-primary rounded-3 p-4 p-md-5 mb-5 border border-primary border-opacity-25'>
                     <div className='row g-3 fs-7'>
-                      <div className='col-3'>
+                      <div className='col-6 col-md-3'>
                         <span className='text-muted d-block fs-8'>Plan Billing</span>
                         <span className='fw-bolder text-primary fs-6'>{managingSubscriber.billAmountGHS}</span>
                       </div>
-                      <div className='col-3'>
+                      <div className='col-6 col-md-3'>
                         <span className='text-muted d-block fs-8'>Total Delivered</span>
                         <span className='fw-bolder text-gray-900 fs-6'>
                           {managingSubscriber.totalBottlesBought} Bottles
                         </span>
                       </div>
-                      <div className='col-3'>
+                      <div className='col-6 col-md-3'>
                         <span className='text-muted d-block fs-8'>Payment Status</span>
                         <span className='badge badge-light-success fw-bold mt-1'>
                           {managingSubscriber.paymentStatus}
                         </span>
                       </div>
-                      <div className='col-3'>
+                      <div className='col-6 col-md-3'>
                         <span className='text-muted d-block fs-8'>Current Status</span>
                         <span
                           className={`badge badge-light-${
@@ -1109,10 +1112,10 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 1: Plan & Classification */}
-                  <div className='mb-4'>
+                  <div className='mb-5'>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700'>Chosen Plan</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800'>Chosen Plan</label>
                         <select
                           className='form-select form-select-solid'
                           value={managingSubscriber.planType}
@@ -1128,8 +1131,8 @@ const SubscribersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700'>Customer Classification</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800'>Customer Classification</label>
                         <select
                           className='form-select form-select-solid'
                           value={managingSubscriber.customerType}
@@ -1148,10 +1151,10 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 2: Bottle & Delivery Frequency */}
-                  <div className='mb-4'>
+                  <div className='mb-5'>
                     <div className='row g-4'>
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700'>Bottle Size</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
                           value={managingSubscriber.bottleChoice}
@@ -1163,13 +1166,16 @@ const SubscribersPage: FC = () => {
                             })
                           }
                         >
-                          <option value='500g plastic bottles'>500g plastic bottles (Large • Product Code: VIV-500-PL • GH₵ 100 each)</option>
-                          <option value='330g plastic bottles'>330g plastic bottles (Regular • Product Code: VIV-330-PL • GH₵ 85 each)</option>
+                          <option value='500g plastic bottles'>500g plastic bottles (GH₵ 100 • Large)</option>
+                          <option value='330g plastic bottles'>330g plastic bottles (GH₵ 85 • Regular)</option>
                         </select>
+                        <div className='form-text fs-8 text-muted mt-1'>
+                          Product Code: {managingSubscriber.sku || (managingSubscriber.bottleChoice === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL')}
+                        </div>
                       </div>
 
-                      <div className='col-md-6'>
-                        <label className='form-label fw-bold fs-7 text-gray-700'>Delivery Frequency</label>
+                      <div className='col-12 col-md-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
                           value={managingSubscriber.frequency}
@@ -1191,8 +1197,8 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 3: Quantity with Stepper and Presets */}
-                  <div className='mb-4'>
-                    <label className='form-label fw-bold fs-7 text-gray-700'>Quantity (Bottles per delivery)</label>
+                  <div className='mb-5'>
+                    <label className='form-label fw-semibold fs-7 text-gray-800'>Quantity (Bottles per delivery)</label>
                     <div className='d-flex align-items-center gap-2 mb-2'>
                       <div className='input-group input-group-solid' style={{maxWidth: '140px'}}>
                         <button
@@ -1238,16 +1244,16 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Dynamic Plan Billing Summary Card */}
-                  <div className='card bg-light-primary border-primary border border-dashed p-4 rounded-3 mb-4'>
-                    <div className='d-flex align-items-center justify-content-between'>
+                  <div className='card bg-light-primary border-primary border border-dashed p-4 rounded-3 mb-5'>
+                    <div className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3'>
                       <div>
                         <span className='fw-bold text-gray-800 fs-7 d-block'>Recalculated Plan Fee:</span>
-                        <span className='text-gray-700 fw-semibold fs-8'>
+                        <span className='text-gray-700 fw-semibold fs-8 mt-0.5'>
                           {managingSubscriber.quantity} × {managingSubscriber.bottleChoice} (<span className='product-code-tag'>Product Code: {managingSubscriber.bottleChoice === '500g plastic bottles' ? 'VIV-500-PL' : 'VIV-330-PL'}</span>) • {managingSubscriber.planType} • {managingSubscriber.frequency}
                         </span>
                       </div>
-                      <div className='text-end'>
-                        <span className='fs-3 fw-bolder text-primary'>
+                      <div className='text-sm-end'>
+                        <span className='fs-3 fw-bolder text-primary text-nowrap'>
                           {calculatePlanBill(
                             managingSubscriber.bottleChoice,
                             Number(managingSubscriber.quantity),
@@ -1259,9 +1265,9 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 4: Payment Details */}
-                  <div className='row g-4 mb-4'>
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold fs-7 text-gray-700'>Payment Method</label>
+                  <div className='row g-4 mb-5'>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold fs-7 text-gray-800'>Payment Method</label>
                       <select
                         className='form-select form-select-solid'
                         value={managingSubscriber.paymentMethod}
@@ -1279,8 +1285,8 @@ const SubscribersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold fs-7 text-gray-700'>Payment Status</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold fs-7 text-gray-800'>Payment Status</label>
                       <select
                         className='form-select form-select-solid'
                         value={managingSubscriber.paymentStatus}
@@ -1299,9 +1305,9 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 5: Support Desk & Location */}
-                  <div className='row g-4 mb-4'>
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold fs-7 text-gray-700'>Customer Support Caller</label>
+                  <div className='row g-4 mb-5'>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold fs-7 text-gray-800'>Customer Support Caller</label>
                       <select
                         className='form-select form-select-solid'
                         value={managingSubscriber.supportAgent}
@@ -1320,8 +1326,8 @@ const SubscribersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold fs-7 text-gray-700'>Region</label>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold fs-7 text-gray-800'>Region</label>
                       <select
                         className='form-select form-select-solid'
                         value={managingSubscriber.region}
@@ -1342,9 +1348,9 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Secondary Details: Landmark / Address & Next Delivery Schedule */}
-                  <div className='row g-4 mb-4'>
-                    <div className='col-md-6'>
-                      <label className='form-label fw-bold fs-7 text-gray-700'>Delivery Landmark / Exact Address</label>
+                  <div className='row g-4 mb-5'>
+                    <div className='col-12 col-md-6'>
+                      <label className='form-label fw-semibold fs-7 text-gray-800'>Delivery Landmark / Exact Address</label>
                       <div className='position-relative'>
                         <input
                           type='text'
@@ -1360,7 +1366,7 @@ const SubscribersPage: FC = () => {
                         <MapPin size={16} className='position-absolute top-50 start-0 translate-middle-y ms-3 text-primary' />
                       </div>
                     </div>
-                    <div className='col-md-6'>
+                    <div className='col-12 col-md-6'>
                       <DeliveryCalendarPicker
                         value={managingSubscriber.nextDeliveryDate}
                         onChange={(date) =>
@@ -1375,21 +1381,21 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Immediate Action Buttons */}
-                  <div className='d-flex gap-3 pt-2'>
+                  <div className='d-flex flex-wrap flex-sm-nowrap gap-2 pt-2'>
                     <button
                       type='button'
                       onClick={() => handleToggleStatus(managingSubscriber.id)}
-                      className={`btn btn-sm flex-grow-1 ${
+                      className={`btn btn-sm flex-fill ${
                         managingSubscriber.status === 'Active' ? 'btn-light-warning' : 'btn-light-success'
-                      } fw-bold d-flex align-items-center justify-content-center`}
+                      } fw-bold d-flex align-items-center justify-content-center py-2.5`}
                     >
                       {managingSubscriber.status === 'Active' ? (
                         <>
-                          <PauseCircle size={15} className='me-1' /> Pause Subscription
+                          <PauseCircle size={15} className='me-1.5' /> Pause Subscription
                         </>
                       ) : (
                         <>
-                          <PlayCircle size={15} className='me-1' /> Activate Subscription
+                          <PlayCircle size={15} className='me-1.5' /> Activate Subscription
                         </>
                       )}
                     </button>
@@ -1397,22 +1403,22 @@ const SubscribersPage: FC = () => {
                     <button
                       type='button'
                       onClick={() => handleDispatchImmediateDelivery(managingSubscriber)}
-                      className='btn btn-sm btn-primary fw-bold d-flex align-items-center justify-content-center'
+                      className='btn btn-sm btn-primary fw-bold d-flex align-items-center justify-content-center flex-fill py-2.5'
                     >
-                      <Truck size={15} className='me-1' /> Instant Delivery
+                      <Truck size={15} className='me-1.5' /> Instant Delivery
                     </button>
                   </div>
                 </div>
 
-                <div className='modal-footer border-0 pt-0 px-8 pb-6'>
+                <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
                   <button
                     type='button'
                     onClick={() => setManagingSubscriber(null)}
-                    className='btn btn-sm btn-light'
+                    className='btn btn-light'
                   >
                     Cancel
                   </button>
-                  <button type='submit' className='btn btn-sm btn-primary fw-bold'>
+                  <button type='submit' className='btn btn-primary fw-bold px-6'>
                     Save Changes
                   </button>
                 </div>

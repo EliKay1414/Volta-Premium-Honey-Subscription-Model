@@ -58,10 +58,10 @@ export const UserProfileModal: FC = () => {
       tabIndex={-1}
       style={{backgroundColor: 'rgba(0, 0, 0, 0.55)', zIndex: 1055}}
     >
-      <div className='modal-dialog modal-dialog-centered mw-650px'>
-        <div className='modal-content border-0 shadow-lg rounded-3'>
+      <div className='modal-dialog modal-dialog-centered mw-650px w-100 mx-auto'>
+        <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
           {/* Modal Header */}
-          <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
+          <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
             <div>
               <h2 className='fw-bolder text-gray-900 fs-3 mb-1'>User Profile</h2>
               <span className='text-muted fs-7'>
@@ -70,18 +70,19 @@ export const UserProfileModal: FC = () => {
             </div>
             <button
               onClick={closeProfileModal}
-              className='btn btn-icon btn-sm btn-active-light-primary rounded-circle'
+              className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
+              aria-label='Close'
             >
               <X size={18} />
             </button>
           </div>
 
           <form onSubmit={handleSave}>
-            <div className='modal-body py-6 px-8'>
+            <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
               {/* Avatar Selection Card */}
-              <div className='d-flex flex-column align-items-center mb-7'>
+              <div className='d-flex flex-column align-items-center mb-6'>
                 <div className='position-relative mb-3'>
-                  <div className='symbol symbol-100px symbol-circle shadow-sm border border-3 border-primary overflow-hidden'>
+                  <div className='symbol symbol-90px symbol-circle shadow-sm border border-3 border-primary overflow-hidden'>
                     <img
                       src={toAbsoluteUrl(selectedAvatar)}
                       alt='Selected Avatar'
@@ -103,9 +104,9 @@ export const UserProfileModal: FC = () => {
                 </div>
 
                 {/* Avatar Gallery Picker */}
-                <div className='w-100 bg-light rounded-3 p-4'>
+                <div className='w-100 bg-light rounded-3 p-4 border border-gray-200'>
                   <div className='d-flex align-items-center justify-content-between mb-2'>
-                    <span className='fw-bold text-gray-700 fs-7'>Choose Profile Photo:</span>
+                    <span className='fw-semibold text-gray-700 fs-7'>Choose Profile Photo:</span>
                     <span className='text-muted fs-8'>Click an image to set</span>
                   </div>
                   <div className='d-flex flex-wrap gap-2 justify-content-center'>
@@ -143,8 +144,8 @@ export const UserProfileModal: FC = () => {
 
               {/* Form Input Fields */}
               <div className='row g-4'>
-                <div className='col-md-6'>
-                  <label className='form-label fw-bold fs-7 text-gray-700 mb-1'>First Name</label>
+                <div className='col-12 col-md-6'>
+                  <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>First Name</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
                       <User size={15} className='text-muted' />
@@ -159,8 +160,8 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-md-6'>
-                  <label className='form-label fw-bold fs-7 text-gray-700 mb-1'>Last Name</label>
+                <div className='col-12 col-md-6'>
+                  <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Last Name</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
                       <User size={15} className='text-muted' />
@@ -175,8 +176,8 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-md-6'>
-                  <label className='form-label fw-bold fs-7 text-gray-700 mb-1'>Email Address</label>
+                <div className='col-12 col-md-6'>
+                  <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Email Address</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
                       <Mail size={15} className='text-muted' />
@@ -191,8 +192,8 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-md-6'>
-                  <label className='form-label fw-bold fs-7 text-gray-700 mb-1'>Phone Number</label>
+                <div className='col-12 col-md-6'>
+                  <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Phone Number</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
                       <Phone size={15} className='text-muted' />
@@ -207,8 +208,8 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-md-6'>
-                  <label className='form-label fw-bold fs-7 text-gray-700 mb-1'>Role Title</label>
+                <div className='col-12 col-md-6'>
+                  <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Role Title</label>
                   <input
                     type='text'
                     className='form-control form-control-solid'
@@ -217,8 +218,8 @@ export const UserProfileModal: FC = () => {
                   />
                 </div>
 
-                <div className='col-md-6'>
-                  <label className='form-label fw-bold fs-7 text-gray-700 mb-1'>Base Location</label>
+                <div className='col-12 col-md-6'>
+                  <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Base Location</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
                       <MapPin size={15} className='text-muted' />
@@ -235,15 +236,15 @@ export const UserProfileModal: FC = () => {
             </div>
 
             {/* Modal Footer */}
-            <div className='modal-footer border-0 pt-0 px-8 pb-6'>
+            <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-end gap-2'>
               <button
                 type='button'
                 onClick={closeProfileModal}
-                className='btn btn-sm btn-light'
+                className='btn btn-light'
               >
                 Cancel
               </button>
-              <button type='submit' className='btn btn-sm btn-primary'>
+              <button type='submit' className='btn btn-primary fw-bold px-6'>
                 Save Changes
               </button>
             </div>

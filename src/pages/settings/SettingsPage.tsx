@@ -99,14 +99,14 @@ const SettingsPage: FC = () => {
       <PageTitle breadcrumbs={[]}>Settings</PageTitle>
 
       <div className='card mb-5 mb-xl-8'>
-        <div className='card-header border-0 pt-5'>
+        <div className='card-header border-0 pt-5 flex-wrap gap-2'>
           <h3 className='card-title align-items-start flex-column'>
             <span className='card-label fw-bold fs-3 mb-1'>Application Settings</span>
             <span className='text-muted mt-1 fw-semibold fs-7'>
               System preferences, USSD gateway settings, and notification options
             </span>
           </h3>
-          <div className='card-toolbar gap-2'>
+          <div className='card-toolbar d-flex flex-wrap gap-2'>
             <button
               type='button'
               className='btn btn-sm btn-light'
@@ -296,7 +296,7 @@ const SettingsPage: FC = () => {
               </div>
             </div>
 
-            <div className='d-flex justify-content-end gap-3 pt-4 border-top'>
+            <div className='d-flex justify-content-end gap-3 pt-4 border-top border-gray-200'>
               <button
                 type='button'
                 className='btn btn-light'
@@ -304,7 +304,7 @@ const SettingsPage: FC = () => {
               >
                 Cancel
               </button>
-              <button type='submit' className='btn btn-primary fw-bold'>
+              <button type='submit' className='btn btn-primary fw-bold px-6'>
                 <Save size={16} className='me-2' /> Save Settings
               </button>
             </div>
@@ -315,27 +315,31 @@ const SettingsPage: FC = () => {
       {/* Gateway Diagnostics Modal */}
       {isGatewayModalOpen && (
         <div className='modal fade show d-block' tabIndex={-1} style={{backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050}}>
-          <div className='modal-dialog modal-dialog-centered mw-600px'>
-            <div className='modal-content rounded-3 shadow-lg border-0'>
-              <div className='modal-header pb-0 border-0 justify-content-between pt-6 px-8'>
-                <div className='d-flex align-items-center gap-3'>
-                  <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>
-                    USSD Gateway Connectivity
-                  </h3>
-                  <span className='badge badge-light-primary fw-bold'>
-                    {ussdCode}
-                  </span>
+          <div className='modal-dialog modal-dialog-centered mw-600px w-100 mx-auto'>
+            <div className='modal-content rounded-3 shadow-sm border border-gray-200'>
+              <div className='modal-header pb-3 border-0 justify-content-between pt-5 pt-md-6 px-5 px-md-8'>
+                <div>
+                  <div className='d-flex flex-wrap align-items-center gap-2 mb-1'>
+                    <h3 className='fw-bolder text-gray-900 fs-4 mb-0'>
+                      USSD Gateway Connectivity
+                    </h3>
+                    <span className='badge badge-light-primary fw-bold'>
+                      {ussdCode}
+                    </span>
+                  </div>
+                  <span className='text-muted fs-7'>Live telco network ping and routing diagnostics</span>
                 </div>
                 <button
                   type='button'
-                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  className='btn btn-icon btn-sm btn-light-secondary rounded-circle'
                   onClick={() => setIsGatewayModalOpen(false)}
+                  aria-label='Close'
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
-              <div className='modal-body pt-4 pb-6 px-8'>
+              <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                 <p className='text-muted fs-7 mb-5'>
                   Live connectivity ping status for the active USSD shortcode across all major mobile telecommunications networks in Ghana.
                 </p>
@@ -353,7 +357,7 @@ const SettingsPage: FC = () => {
                     {gatewayResults.map((res) => (
                       <div
                         key={res.network}
-                        className='d-flex align-items-center justify-content-between p-4 bg-light rounded-3'
+                        className='d-flex flex-column flex-sm-row align-items-sm-center justify-content-between p-3 p-sm-4 bg-light rounded-3 border border-gray-200 gap-2'
                       >
                         <div className='d-flex align-items-center gap-3'>
                           <span className='badge badge-circle badge-success'>
@@ -364,15 +368,15 @@ const SettingsPage: FC = () => {
                             <div className='text-muted fs-8'>Gateway HTTP status: 200 OK</div>
                           </div>
                         </div>
-                        <div className='text-end'>
+                        <div className='text-sm-end'>
                           <span className='badge badge-light-success fw-bold me-2'>{res.status}</span>
                           <span className='badge badge-light fw-semibold text-gray-700'>{res.latency}</span>
                         </div>
                       </div>
                     ))}
 
-                    <div className='alert alert-light-success d-flex align-items-center p-4 mt-2 mb-0 rounded-3'>
-                      <Activity size={18} className='text-success me-3' />
+                    <div className='alert alert-light-success d-flex align-items-center p-4 mt-2 mb-0 rounded-3 border border-success border-opacity-25'>
+                      <Activity size={18} className='text-success me-3 flex-shrink-0' />
                       <div className='fs-7 text-gray-800'>
                         All telco gateways are responsive. Subscribers dialing <strong>{ussdCode}</strong> are being routed without interruption.
                       </div>
@@ -381,7 +385,7 @@ const SettingsPage: FC = () => {
                 )}
               </div>
 
-              <div className='modal-footer border-0 pt-0 pb-6 px-8 justify-content-between'>
+              <div className='modal-footer border-0 pt-0 px-5 px-md-8 pb-5 pb-md-6 justify-content-between flex-wrap gap-2'>
                 <button
                   type='button'
                   className='btn btn-light-primary fw-bold'
