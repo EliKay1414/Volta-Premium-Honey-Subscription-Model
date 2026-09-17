@@ -758,8 +758,8 @@ const DeliveryPage: FC = () => {
                         1. Recipient Information
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Recipient Type</label>
                         <select
                           className='form-select form-select-solid'
@@ -771,27 +771,27 @@ const DeliveryPage: FC = () => {
                             })
                           }
                         >
-                          <option value='Subscriber'>Subscriber (Regular Refill)</option>
-                          <option value='Vendor'>Vendor (Supermarket / Retail Mart)</option>
-                          <option value='Customer / Buyer'>Customer / Buyer (Direct Order)</option>
+                          <option value='Subscriber'>Subscriber</option>
+                          <option value='Vendor'>Vendor (Mart)</option>
+                          <option value='Customer / Buyer'>Customer / Buyer</option>
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>
-                          {newDelivery.recipientType === 'Vendor' ? 'Vendor / Mart Name' : 'Recipient Name'}
+                          {newDelivery.recipientType === 'Vendor' ? 'Vendor Name' : 'Recipient Name'}
                         </label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
-                          placeholder={newDelivery.recipientType === 'Vendor' ? 'e.g. Melcom Central Mart' : 'e.g. Sarah Johnson'}
+                          placeholder={newDelivery.recipientType === 'Vendor' ? 'e.g. Melcom Mart' : 'e.g. Sarah Johnson'}
                           required
                           value={newDelivery.recipientName}
                           onChange={(e) => setNewDelivery({...newDelivery, recipientName: e.target.value})}
                         />
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Phone Number</label>
                         <input
                           type='tel'
@@ -803,7 +803,7 @@ const DeliveryPage: FC = () => {
                         />
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Region</label>
                         <select
                           className='form-select form-select-solid'
@@ -827,8 +827,8 @@ const DeliveryPage: FC = () => {
                         2. Order & Product Specification
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Selected Plan</label>
                         <select
                           className='form-select form-select-solid'
@@ -841,13 +841,13 @@ const DeliveryPage: FC = () => {
                           }
                         >
                           <option value='Monthly Plan'>Monthly Plan</option>
-                          <option value='Annual Plan'>Annual Plan (Full Year)</option>
-                          <option value='Wholesale Batch'>Wholesale Batch (Vendors)</option>
-                          <option value='One-Time Order'>One-Time Order (Direct)</option>
+                          <option value='Annual Plan'>Annual Plan</option>
+                          <option value='Wholesale Batch'>Wholesale Batch</option>
+                          <option value='One-Time Order'>One-Time Order</option>
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
@@ -867,7 +867,7 @@ const DeliveryPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Bottle Product</label>
                         <select
                           className='form-select form-select-solid'
@@ -879,12 +879,12 @@ const DeliveryPage: FC = () => {
                             })
                           }
                         >
-                          <option value='500g plastic bottles'>500g plastic bottles (Large • Product Code: VIV-500-PL • GH₵ 100)</option>
-                          <option value='330g plastic bottles'>330g plastic bottles (Regular • Product Code: VIV-330-PL • GH₵ 85)</option>
+                          <option value='500g plastic bottles'>500g plastic bottles (GH₵ 100 • Large)</option>
+                          <option value='330g plastic bottles'>330g plastic bottles (GH₵ 85 • Regular)</option>
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>
                           Quantity (Bottles)
                         </label>
@@ -991,8 +991,8 @@ const DeliveryPage: FC = () => {
                         4. Rider Assignment & Status
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Assigned Dispatch Rider</label>
                         <select
                           className='form-select form-select-solid'
@@ -1015,7 +1015,7 @@ const DeliveryPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7'>Initial Dispatch Status</label>
                         <select
                           className='form-select form-select-solid'
@@ -1110,30 +1110,30 @@ const DeliveryPage: FC = () => {
                 <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   <div className='card bg-light p-4 mb-4 rounded-3 border border-gray-200'>
                     <div className='row g-3 g-md-4'>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>RECIPIENT & TYPE</div>
-                        <div className='fw-bolder text-gray-900 fs-6'>{selectedDelivery.recipientName}</div>
+                        <div className='fw-bolder text-gray-900 fs-6 text-truncate'>{selectedDelivery.recipientName}</div>
                         <span className='badge badge-light-primary fw-bold fs-9 mt-1'>{selectedDelivery.recipientType}</span>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>PHONE</div>
-                        <div className='fw-bold text-gray-800 fs-7'>{selectedDelivery.phoneNumber}</div>
+                        <div className='fw-bold text-gray-800 fs-7 text-truncate'>{selectedDelivery.phoneNumber}</div>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>PLAN & FREQUENCY</div>
-                        <div className='fw-bold text-gray-900 fs-7'>{selectedDelivery.planType}</div>
+                        <div className='fw-bold text-gray-900 fs-7 text-truncate'>{selectedDelivery.planType}</div>
                         <span className='text-muted fs-8'>{selectedDelivery.frequency}</span>
                       </div>
-                      <div className='col-12 col-sm-6'>
-                        <div className='text-muted fs-8 fw-bold text-uppercase'>BOTTLE & PRODUCT CODE</div>
-                        <div className='fw-bold text-primary fs-7'>{selectedDelivery.honeyPackage}</div>
-                        <span className='badge badge-light-primary fw-bold fs-8 product-code-badge mt-1'>Product Code: {selectedDelivery.sku}</span>
+                      <div className='col-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>BOTTLE & CODE</div>
+                        <div className='fw-bold text-primary fs-7 text-truncate'>{selectedDelivery.honeyPackage}</div>
+                        <span className='badge badge-light-primary fw-bold fs-8 product-code-badge mt-1'>Code: {selectedDelivery.sku}</span>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>REGION</div>
-                        <div className='fw-bold text-gray-800 fs-7'>{selectedDelivery.region}</div>
+                        <div className='fw-bold text-gray-800 fs-7 text-truncate'>{selectedDelivery.region}</div>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>DELIVERY FEE</div>
                         <div className='fw-bolder text-primary fs-6'>{selectedDelivery.deliveryFeeGHS}</div>
                         <span className='text-muted fs-9'>{selectedDelivery.perimeterTier}</span>
@@ -1155,8 +1155,8 @@ const DeliveryPage: FC = () => {
                     </div>
                   </div>
 
-                  <div className='row g-4'>
-                    <div className='col-12 col-md-6'>
+                  <div className='row g-3 g-md-4'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7'>Update Status</label>
                       <select
                         className='form-select form-select-solid'
@@ -1174,7 +1174,7 @@ const DeliveryPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7'>Adjust Perimeter Tier</label>
                       <select
                         className='form-select form-select-solid'

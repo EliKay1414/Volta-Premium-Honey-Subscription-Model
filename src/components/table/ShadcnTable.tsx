@@ -365,29 +365,34 @@ export function ShadcnTable<T extends Record<string, any>>({
         )}
 
       {/* Shadcn UI Pagination Footer */}
-      <div className='shadcn-table-pagination d-flex align-items-center justify-content-between flex-wrap gap-3 px-4 py-3 rounded-bottom-3'>
-        <div className='d-flex align-items-center gap-2'>
-          <span className='fs-8 fw-semibold'>Rows per page</span>
-          <select
-            className='form-select form-select-sm form-select-solid w-75px py-1 fs-8'
-            value={pageSize}
-            onChange={(e) => {
-              setPageSize(Number(e.target.value))
-              setCurrentPage(1)
-            }}
-          >
-            {pageSizeOptions.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
-          </select>
-          <span className='fs-8 fw-bold ms-3'>
-            {startItem}-{endItem} of {totalItems}
+      <div className='shadcn-table-pagination d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-3 px-4 py-3 rounded-bottom-3'>
+        {/* Column-format: Count on top, Rows per page below */}
+        <div className='d-flex flex-column gap-1'>
+          <span className='fs-8 fw-bold text-gray-800'>
+            {startItem}–{endItem} of {totalItems}
           </span>
+          <div className='d-flex align-items-center gap-2'>
+            <span className='fs-8 text-muted fw-medium'>Rows per page:</span>
+            <select
+              className='form-select form-select-sm form-select-solid w-70px py-0 fs-8'
+              style={{height: '28px', minHeight: '28px', padding: '2px 8px'}}
+              value={pageSize}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value))
+                setCurrentPage(1)
+              }}
+            >
+              {pageSizeOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
-        <div className='d-flex align-items-center gap-2'>
+        {/* Pagination Navigation */}
+        <div className='d-flex align-items-center gap-2 w-100 w-sm-auto justify-content-between justify-content-sm-end'>
           <button
             type='button'
             className='btn btn-xs btn-light fw-bold px-3 py-1'
@@ -396,7 +401,7 @@ export function ShadcnTable<T extends Record<string, any>>({
           >
             <ChevronLeft size={14} className='me-1' /> Previous
           </button>
-          <span className='fs-8 fw-semibold px-1'>
+          <span className='fs-8 fw-semibold px-2 text-gray-700'>
             Page {currentPage} of {totalPages}
           </span>
           <button

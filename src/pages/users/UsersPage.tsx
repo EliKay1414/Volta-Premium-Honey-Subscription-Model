@@ -425,7 +425,7 @@ const UsersPage: FC = () => {
                       />
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7 required'>Role</label>
                       <select
                         className='form-select form-select-solid'
@@ -442,7 +442,7 @@ const UsersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7 required'>Department</label>
                       <select
                         className='form-select form-select-solid'
@@ -583,7 +583,7 @@ const UsersPage: FC = () => {
                       />
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7 required'>Role</label>
                       <select
                         className='form-select form-select-solid'
@@ -600,7 +600,7 @@ const UsersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7 required'>Department</label>
                       <select
                         className='form-select form-select-solid'

@@ -605,8 +605,8 @@ const OrdersPage: FC = () => {
                         1. Buyer & Plan Details
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-3'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Buyer Name</label>
                         <input
                           type='text'
@@ -618,7 +618,7 @@ const OrdersPage: FC = () => {
                         />
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Phone Number</label>
                         <input
                           type='tel'
@@ -631,8 +631,8 @@ const OrdersPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Region</label>
                         <select
                           className='form-select form-select-solid'
@@ -647,7 +647,7 @@ const OrdersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Plan Type</label>
                         <select
                           className='form-select form-select-solid'
@@ -674,8 +674,8 @@ const OrdersPage: FC = () => {
                         2. Bottle Selection & Quantity
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
@@ -695,7 +695,7 @@ const OrdersPage: FC = () => {
                         </div>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Quantity (Bottles)</label>
                         <div className='d-flex align-items-center gap-2 mb-2'>
                           <div className='input-group input-group-solid' style={{maxWidth: '140px'}}>
@@ -879,38 +879,38 @@ const OrdersPage: FC = () => {
                 <div className='modal-body py-4 py-md-6 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                   <div className='card bg-light p-4 mb-5 rounded-3 border border-gray-200'>
                     <div className='row g-3 g-md-4'>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>BUYER NAME</div>
-                        <div className='fw-bolder text-gray-900 fs-6'>{selectedOrder.buyerName}</div>
+                        <div className='fw-bolder text-gray-900 fs-6 text-truncate'>{selectedOrder.buyerName}</div>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>PHONE NUMBER</div>
-                        <div className='fw-bold text-gray-800 fs-7'>{selectedOrder.phoneNumber}</div>
+                        <div className='fw-bold text-gray-800 fs-7 text-truncate'>{selectedOrder.phoneNumber}</div>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>PLAN TYPE</div>
-                        <div className='fw-bold text-gray-900 fs-7'>{selectedOrder.planType}</div>
+                        <div className='fw-bold text-gray-900 fs-7 text-truncate'>{selectedOrder.planType}</div>
                       </div>
-                      <div className='col-12 col-sm-6'>
-                        <div className='text-muted fs-8 fw-bold text-uppercase'>BOTTLE & PRODUCT CODE</div>
-                        <div className='fw-bold text-primary fs-7'>
+                      <div className='col-6'>
+                        <div className='text-muted fs-8 fw-bold text-uppercase'>BOTTLE & CODE</div>
+                        <div className='fw-bold text-primary fs-7 text-truncate'>
                           {selectedOrder.numberOfBottles}x {selectedOrder.bottleType}
                         </div>
-                        <span className='badge badge-light-primary fw-bold fs-8 product-code-badge mt-1'>Product Code: {selectedOrder.sku}</span>
+                        <span className='badge badge-light-primary fw-bold fs-8 product-code-badge mt-1'>Code: {selectedOrder.sku}</span>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>PAYMENT METHOD</div>
-                        <div className='fw-bold text-gray-800 fs-7'>{selectedOrder.paymentMethod}</div>
+                        <div className='fw-bold text-gray-800 fs-7 text-truncate'>{selectedOrder.paymentMethod}</div>
                       </div>
-                      <div className='col-12 col-sm-6'>
+                      <div className='col-6'>
                         <div className='text-muted fs-8 fw-bold text-uppercase'>TOTAL BILL</div>
                         <div className='fw-bolder text-success fs-5'>{selectedOrder.amountGHS}</div>
                       </div>
                     </div>
                   </div>
 
-                  <div className='row g-4'>
-                    <div className='col-12 col-md-6'>
+                  <div className='row g-3 g-md-4'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7'>Update Delivery Status</label>
                       <select
                         className='form-select form-select-solid'
@@ -928,7 +928,7 @@ const OrdersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7'>Update Payment Status</label>
                       <select
                         className='form-select form-select-solid'

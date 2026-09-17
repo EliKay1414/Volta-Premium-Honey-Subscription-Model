@@ -758,8 +758,8 @@ const SubscribersPage: FC = () => {
                         1. Personal Details
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-3'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Buyer Full Name</label>
                         <input
                           type='text'
@@ -770,7 +770,7 @@ const SubscribersPage: FC = () => {
                           required
                         />
                       </div>
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Phone Number</label>
                         <input
                           type='text'
@@ -783,8 +783,8 @@ const SubscribersPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Gender</label>
                         <select
                           className='form-select form-select-solid'
@@ -795,8 +795,8 @@ const SubscribersPage: FC = () => {
                           <option value='Female'>Female</option>
                         </select>
                       </div>
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Date of Birth (Dob)</label>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Date of Birth</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -817,8 +817,8 @@ const SubscribersPage: FC = () => {
                       </span>
                     </div>
 
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-3'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
@@ -838,7 +838,7 @@ const SubscribersPage: FC = () => {
                         </div>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
@@ -854,10 +854,10 @@ const SubscribersPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>
-                          Quantity (Bottles per delivery)
+                          Quantity (Bottles)
                         </label>
                         <div className='input-group input-group-solid' style={{maxWidth: '140px'}}>
                           <button
@@ -889,10 +889,10 @@ const SubscribersPage: FC = () => {
                         </div>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Plan Selection</label>
                         <select
-                          className='form-select form-select-solid mb-3'
+                          className='form-select form-select-solid mb-2'
                           value={newSub.planType}
                           onChange={(e) =>
                             setNewSub({
@@ -901,8 +901,8 @@ const SubscribersPage: FC = () => {
                             })
                           }
                         >
-                          <option value='Monthly Plan'>Monthly Plan (Billed monthly)</option>
-                          <option value='Annual Plan'>Annual Plan (Full year with 10% discount)</option>
+                          <option value='Monthly Plan'>Monthly Plan</option>
+                          <option value='Annual Plan'>Annual Plan (10% off)</option>
                         </select>
 
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Classification</label>
@@ -930,22 +930,22 @@ const SubscribersPage: FC = () => {
                         3. Payment Details
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Payment Method</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.paymentMethod}
                           onChange={(e) => setNewSub({...newSub, paymentMethod: e.target.value as any})}
                         >
-                          <option value='MTN Mobile Money'>MTN Mobile Money (MoMo)</option>
-                          <option value='Telecel Cash'>Telecel Cash (Vodafone Cash)</option>
-                          <option value='Bank Card / Visa'>Bank Card / Visa / MasterCard</option>
+                          <option value='MTN Mobile Money'>MTN Mobile Money</option>
+                          <option value='Telecel Cash'>Telecel Cash</option>
+                          <option value='Bank Card / Visa'>Bank Card / Visa</option>
                           <option value='Cash on Delivery'>Cash on Delivery</option>
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Payment Status</label>
                         <select
                           className='form-select form-select-solid'
@@ -984,9 +984,9 @@ const SubscribersPage: FC = () => {
                         4. Support Desk & Delivery Address
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Customer Support Caller</label>
+                    <div className='row g-3 g-md-4 mb-3'>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Support Caller</label>
                         <select
                           className='form-select form-select-solid'
                           value={newSub.supportAgent}
@@ -1000,7 +1000,7 @@ const SubscribersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Region (Ghana)</label>
                         <select
                           className='form-select form-select-solid'
@@ -1016,8 +1016,8 @@ const SubscribersPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800'>Delivery Landmark / Address</label>
                         <input
                           type='text'
@@ -1027,7 +1027,7 @@ const SubscribersPage: FC = () => {
                           onChange={(e) => setNewSub({...newSub, landmark: e.target.value})}
                         />
                       </div>
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <DeliveryCalendarPicker
                           value={newSub.nextDeliveryDate}
                           onChange={(date) => setNewSub({...newSub, nextDeliveryDate: date})}
@@ -1113,8 +1113,8 @@ const SubscribersPage: FC = () => {
 
                   {/* Section 1: Plan & Classification */}
                   <div className='mb-5'>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800'>Chosen Plan</label>
                         <select
                           className='form-select form-select-solid'
@@ -1131,7 +1131,7 @@ const SubscribersPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800'>Customer Classification</label>
                         <select
                           className='form-select form-select-solid'
@@ -1152,8 +1152,8 @@ const SubscribersPage: FC = () => {
 
                   {/* Section 2: Bottle & Delivery Frequency */}
                   <div className='mb-5'>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
@@ -1174,7 +1174,7 @@ const SubscribersPage: FC = () => {
                         </div>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
@@ -1265,8 +1265,8 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 4: Payment Details */}
-                  <div className='row g-4 mb-5'>
-                    <div className='col-12 col-md-6'>
+                  <div className='row g-3 g-md-4 mb-5'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold fs-7 text-gray-800'>Payment Method</label>
                       <select
                         className='form-select form-select-solid'
@@ -1285,7 +1285,7 @@ const SubscribersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold fs-7 text-gray-800'>Payment Status</label>
                       <select
                         className='form-select form-select-solid'
@@ -1305,8 +1305,8 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Section 5: Support Desk & Location */}
-                  <div className='row g-4 mb-5'>
-                    <div className='col-12 col-md-6'>
+                  <div className='row g-3 g-md-4 mb-5'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold fs-7 text-gray-800'>Customer Support Caller</label>
                       <select
                         className='form-select form-select-solid'
@@ -1326,7 +1326,7 @@ const SubscribersPage: FC = () => {
                       </select>
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold fs-7 text-gray-800'>Region</label>
                       <select
                         className='form-select form-select-solid'
@@ -1348,8 +1348,8 @@ const SubscribersPage: FC = () => {
                   </div>
 
                   {/* Secondary Details: Landmark / Address & Next Delivery Schedule */}
-                  <div className='row g-4 mb-5'>
-                    <div className='col-12 col-md-6'>
+                  <div className='row g-3 g-md-4 mb-5'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold fs-7 text-gray-800'>Delivery Landmark / Exact Address</label>
                       <div className='position-relative'>
                         <input
@@ -1366,7 +1366,7 @@ const SubscribersPage: FC = () => {
                         <MapPin size={16} className='position-absolute top-50 start-0 translate-middle-y ms-3 text-primary' />
                       </div>
                     </div>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <DeliveryCalendarPicker
                         value={managingSubscriber.nextDeliveryDate}
                         onChange={(date) =>

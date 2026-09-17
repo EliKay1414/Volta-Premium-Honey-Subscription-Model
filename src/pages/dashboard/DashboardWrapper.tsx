@@ -862,8 +862,8 @@ const DashboardPage: FC = () => {
                         1. Personal Details
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Full Name</label>
                         <input
                           type='text'
@@ -874,7 +874,7 @@ const DashboardPage: FC = () => {
                           onChange={(e) => setNewSub({...newSub, name: e.target.value})}
                         />
                       </div>
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Phone Number</label>
                         <input
                           type='tel'
@@ -887,8 +887,8 @@ const DashboardPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-sm-4'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Gender</label>
                         <select
                           className='form-select form-select-solid'
@@ -900,7 +900,7 @@ const DashboardPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-sm-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Date of Birth (Dob)</label>
                         <input
                           type='text'
@@ -912,7 +912,7 @@ const DashboardPage: FC = () => {
                         />
                       </div>
 
-                      <div className='col-12 col-sm-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Region</label>
                         <select
                           className='form-select form-select-solid'
@@ -936,8 +936,8 @@ const DashboardPage: FC = () => {
                         2. Plan & Subscription
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Chosen Plan</label>
                         <select
                           className='form-select form-select-solid'
@@ -955,7 +955,7 @@ const DashboardPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7'>Subscription Status</label>
                         <select
                           className='form-select form-select-solid'
@@ -981,8 +981,8 @@ const DashboardPage: FC = () => {
                         3. Bottle & Delivery Options
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
@@ -1002,7 +1002,7 @@ const DashboardPage: FC = () => {
                         </div>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
@@ -1062,8 +1062,8 @@ const DashboardPage: FC = () => {
                         4. Payment & Delivery Address
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Payment Method</label>
                         <select
                           className='form-select form-select-solid'
@@ -1077,7 +1077,7 @@ const DashboardPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7 required'>Payment Status</label>
                         <select
                           className='form-select form-select-solid'
@@ -1096,8 +1096,8 @@ const DashboardPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold text-gray-800 fs-7'>Delivery Landmark / Exact Address</label>
                         <input
                           type='text'
@@ -1107,7 +1107,7 @@ const DashboardPage: FC = () => {
                           onChange={(e) => setNewSub({...newSub, landmark: e.target.value})}
                         />
                       </div>
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <DeliveryCalendarPicker
                           value={newSub.nextDelivery}
                           onChange={(date) => setNewSub({...newSub, nextDelivery: date})}
@@ -1186,8 +1186,8 @@ const DashboardPage: FC = () => {
 
               <form onSubmit={handleSaveBottlingSchedule}>
                 <div className='modal-body py-4 py-md-5 px-5 px-md-8'>
-                  <div className='row g-4'>
-                    <div className='col-12 col-md-6'>
+                  <div className='row g-3 g-md-4'>
+                    <div className='col-6'>
                       <DeliveryCalendarPicker
                         value={bottlingSchedule.date}
                         onChange={(date) => setBottlingSchedule({...bottlingSchedule, date})}
@@ -1196,7 +1196,7 @@ const DashboardPage: FC = () => {
                       />
                     </div>
 
-                    <div className='col-12 col-md-6'>
+                    <div className='col-6'>
                       <label className='form-label fw-semibold text-gray-800 fs-7 required'>Batch Target (Bottles)</label>
                       <input
                         type='text'
@@ -1275,20 +1275,20 @@ const DashboardPage: FC = () => {
               <div className='modal-body py-4 px-5 px-md-8' style={{maxHeight: 'calc(100vh - 160px)', overflowY: 'auto'}}>
                 {/* Details Section */}
                 <div className='bg-light rounded-3 p-4 p-md-5 mb-5 border border-gray-200'>
-                  <div className='row g-4'>
-                    <div className='col-12 col-sm-6'>
+                  <div className='row g-3 g-md-4'>
+                    <div className='col-6'>
                       <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Subscription Plan</div>
                       <div className='fw-bold text-gray-900 fs-6'>{selectedSubscriber.planType}</div>
                       <span className='text-success fw-bolder fs-7'>{selectedSubscriber.monthlyAmountGHS}</span>
                     </div>
 
-                    <div className='col-12 col-sm-6'>
+                    <div className='col-6'>
                       <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Bottle & SKU</div>
                       <div className='fw-bold text-primary fs-6'>{selectedSubscriber.bottleChoice}</div>
                       <span className='product-code-badge mt-1'>Product Code: {selectedSubscriber.sku}</span>
                     </div>
 
-                    <div className='col-12 col-sm-6'>
+                    <div className='col-6'>
                       <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Quantity & Frequency</div>
                       <div className='fw-bold text-gray-800 fs-6 d-flex align-items-center'>
                         <Package size={14} className='text-primary me-1.5' />
@@ -1296,13 +1296,13 @@ const DashboardPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='col-12 col-sm-6'>
+                    <div className='col-6'>
                       <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Payment Follows</div>
                       <div className='fw-bold text-gray-800 fs-6'>{selectedSubscriber.paymentStatus}</div>
                       <span className='text-muted fs-8'>{selectedSubscriber.paymentMethod}</span>
                     </div>
 
-                    <div className='col-12 col-sm-6'>
+                    <div className='col-6'>
                       <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Next Scheduled Delivery</div>
                       <div className='fw-bold text-gray-900 fs-6 d-flex align-items-center'>
                         <Calendar size={14} className='text-primary me-1.5' />
@@ -1310,7 +1310,7 @@ const DashboardPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='col-12 col-sm-6'>
+                    <div className='col-6'>
                       <div className='text-gray-500 fs-8 fw-semibold text-uppercase mb-1'>Delivery Landmark</div>
                       <div className='fw-bold text-gray-800 fs-6'>
                         {(selectedSubscriber as any).landmark || selectedSubscriber.region + ' Address'}

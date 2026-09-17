@@ -143,8 +143,8 @@ export const UserProfileModal: FC = () => {
               </div>
 
               {/* Form Input Fields */}
-              <div className='row g-4'>
-                <div className='col-12 col-md-6'>
+              <div className='row g-3 g-md-4'>
+                <div className='col-6'>
                   <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>First Name</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
@@ -160,7 +160,7 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-12 col-md-6'>
+                <div className='col-6'>
                   <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Last Name</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
@@ -176,7 +176,7 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-12 col-md-6'>
+                <div className='col-6'>
                   <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Email Address</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
@@ -192,7 +192,7 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-12 col-md-6'>
+                <div className='col-6'>
                   <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Phone Number</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>
@@ -208,7 +208,7 @@ export const UserProfileModal: FC = () => {
                   </div>
                 </div>
 
-                <div className='col-12 col-md-6'>
+                <div className='col-6'>
                   <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Role Title</label>
                   <input
                     type='text'
@@ -218,7 +218,7 @@ export const UserProfileModal: FC = () => {
                   />
                 </div>
 
-                <div className='col-12 col-md-6'>
+                <div className='col-6'>
                   <label className='form-label fw-semibold fs-7 text-gray-800 mb-1'>Base Location</label>
                   <div className='input-group input-group-solid'>
                     <span className='input-group-text bg-light'>

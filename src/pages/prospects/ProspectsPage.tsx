@@ -621,8 +621,8 @@ const ProspectsPage: FC = () => {
                         1. Personal Details
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-3'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Full Name</label>
                         <input
                           type='text'
@@ -633,7 +633,7 @@ const ProspectsPage: FC = () => {
                           required
                         />
                       </div>
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Phone (Tel)</label>
                         <input
                           type='text'
@@ -646,8 +646,8 @@ const ProspectsPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Gender</label>
                         <select
                           className='form-select form-select-solid'
@@ -658,8 +658,8 @@ const ProspectsPage: FC = () => {
                           <option value='Female'>Female</option>
                         </select>
                       </div>
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Date of Birth (Dob)</label>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Date of Birth</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -679,8 +679,8 @@ const ProspectsPage: FC = () => {
                         2. Location & Bottle Preference
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Region (Ghana)</label>
                         <select
                           className='form-select form-select-solid'
@@ -695,7 +695,7 @@ const ProspectsPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800'>Bottle Preference</label>
                         <select
                           className='form-select form-select-solid'
@@ -707,8 +707,8 @@ const ProspectsPage: FC = () => {
                             })
                           }
                         >
-                          <option value='500g plastic bottles'>500g plastic bottles (Large • Product Code: VIV-500-PL • GH₵ 100 each)</option>
-                          <option value='330g plastic bottles'>330g plastic bottles (Regular • Product Code: VIV-330-PL • GH₵ 85 each)</option>
+                          <option value='500g plastic bottles'>500g plastic bottles (GH₵ 100 • Large)</option>
+                          <option value='330g plastic bottles'>330g plastic bottles (GH₵ 85 • Regular)</option>
                         </select>
                       </div>
                     </div>
@@ -721,9 +721,9 @@ const ProspectsPage: FC = () => {
                         3. Verification & Support Desk
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Customer Support Caller</label>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Support Caller</label>
                         <select
                           className='form-select form-select-solid'
                           value={newProspect.supportAgent}
@@ -737,7 +737,7 @@ const ProspectsPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Call Status</label>
                         <select
                           className='form-select form-select-solid'
@@ -749,8 +749,8 @@ const ProspectsPage: FC = () => {
                             })
                           }
                         >
-                          <option value='Call Completed'>Call Completed (Verified over call)</option>
-                          <option value='Pending Call'>Pending Support Call</option>
+                          <option value='Call Completed'>Call Completed</option>
+                          <option value='Pending Call'>Pending Call</option>
                           <option value='Follow-up'>Follow-up Needed</option>
                         </select>
                       </div>
@@ -825,21 +825,21 @@ const ProspectsPage: FC = () => {
                   {/* Prospect Overview Card */}
                   <div className='bg-light-primary rounded-3 p-4 mb-5 border border-primary border-opacity-25'>
                     <div className='row g-3 fs-7'>
-                      <div className='col-12 col-sm-6'>
-                        <span className='text-muted'>Phone (Tel):</span>{' '}
-                        <span className='fw-bold text-gray-800'>{makeBuyerProspect.phoneNumber}</span>
+                      <div className='col-6'>
+                        <span className='text-muted d-block fs-8'>Phone (Tel):</span>
+                        <span className='fw-bold text-gray-800 text-truncate d-block'>{makeBuyerProspect.phoneNumber}</span>
                       </div>
-                      <div className='col-12 col-sm-6'>
-                        <span className='text-muted'>Gender / Dob:</span>{' '}
-                        <span className='fw-bold text-gray-800'>{makeBuyerProspect.gender} • {makeBuyerProspect.dob}</span>
+                      <div className='col-6'>
+                        <span className='text-muted d-block fs-8'>Gender / Dob:</span>
+                        <span className='fw-bold text-gray-800 text-truncate d-block'>{makeBuyerProspect.gender} • {makeBuyerProspect.dob}</span>
                       </div>
-                      <div className='col-12 col-sm-6'>
-                        <span className='text-muted'>Region:</span>{' '}
-                        <span className='fw-bold text-gray-800'>{makeBuyerProspect.region}</span>
+                      <div className='col-6'>
+                        <span className='text-muted d-block fs-8'>Region:</span>
+                        <span className='fw-bold text-gray-800 text-truncate d-block'>{makeBuyerProspect.region}</span>
                       </div>
-                      <div className='col-12 col-sm-6'>
-                        <span className='text-muted'>Product Preference:</span>{' '}
-                        <span className='badge badge-light-primary fw-bold'>{makeBuyerProspect.preferredSize}</span>
+                      <div className='col-6'>
+                        <span className='text-muted d-block fs-8'>Product Preference:</span>
+                        <span className='badge badge-light-primary fw-bold text-truncate'>{makeBuyerProspect.preferredSize}</span>
                       </div>
                       <div className='col-12 mt-2 pt-2 border-top border-primary border-opacity-25'>
                         <span className='text-muted'>Delivery Landmark:</span>{' '}
@@ -855,8 +855,8 @@ const ProspectsPage: FC = () => {
                         1. Classification & Support Agent
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Customer Type</label>
                         <select
                           className='form-select form-select-solid'
@@ -866,13 +866,12 @@ const ProspectsPage: FC = () => {
                           }
                         >
                           <option value='Active Customer / Buyer'>Active Customer / Buyer</option>
-                          <option value='Subscriber Only'>Subscriber Only (Registered)</option>
+                          <option value='Subscriber Only'>Subscriber Only</option>
                         </select>
-                        <div className='form-text text-muted fs-8'>Distinguishes active repeat buyers from subscribers.</div>
                       </div>
 
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Support Caller Onboarder</label>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Support Caller</label>
                         <select
                           className='form-select form-select-solid'
                           value={buyerSupportAgent}
@@ -880,11 +879,10 @@ const ProspectsPage: FC = () => {
                         >
                           {SUPPORT_AGENTS.map((agent) => (
                             <option key={agent} value={agent}>
-                              {agent} (Customer Support Desk)
+                              {agent}
                             </option>
                           ))}
                         </select>
-                        <div className='form-text text-muted fs-8'>Agent who called and updated profile over phone.</div>
                       </div>
                     </div>
                   </div>
@@ -896,8 +894,8 @@ const ProspectsPage: FC = () => {
                         2. Plan & Bottle Size
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Chosen Plan</label>
                         <select
                           className='form-select form-select-solid'
@@ -911,7 +909,7 @@ const ProspectsPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Bottle Size</label>
                         <select
                           className='form-select form-select-solid'
@@ -937,9 +935,9 @@ const ProspectsPage: FC = () => {
                         3. Quantity & Delivery Frequency
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Quantity (Bottles per delivery)</label>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Quantity (Bottles)</label>
                         <div className='d-flex align-items-center gap-2 mb-2'>
                           <div className='input-group input-group-solid' style={{maxWidth: '140px'}}>
                             <button
@@ -972,7 +970,7 @@ const ProspectsPage: FC = () => {
                         </div>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Delivery Frequency</label>
                         <select
                           className='form-select form-select-solid'
@@ -998,8 +996,8 @@ const ProspectsPage: FC = () => {
                         4. Payment Details & Dispatch
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-3'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Payment Method</label>
                         <select
                           className='form-select form-select-solid'
@@ -1010,14 +1008,14 @@ const ProspectsPage: FC = () => {
                             )
                           }
                         >
-                          <option value='MTN Mobile Money'>MTN Mobile Money (MoMo)</option>
-                          <option value='Telecel Cash'>Telecel Cash (Vodafone Cash)</option>
-                          <option value='Bank Card / Visa'>Bank Card / Visa / MasterCard</option>
+                          <option value='MTN Mobile Money'>MTN Mobile Money</option>
+                          <option value='Telecel Cash'>Telecel Cash</option>
+                          <option value='Bank Card / Visa'>Bank Card / Visa</option>
                           <option value='Cash on Delivery'>Cash on Delivery</option>
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Payment Status</label>
                         <select
                           className='form-select form-select-solid'
@@ -1119,8 +1117,8 @@ const ProspectsPage: FC = () => {
                         1. Personal Details
                       </span>
                     </div>
-                    <div className='row g-4 mb-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4 mb-3'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Full Name</label>
                         <input
                           type='text'
@@ -1130,7 +1128,7 @@ const ProspectsPage: FC = () => {
                           required
                         />
                       </div>
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Phone (Tel)</label>
                         <input
                           type='text'
@@ -1142,8 +1140,8 @@ const ProspectsPage: FC = () => {
                       </div>
                     </div>
 
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Gender</label>
                         <select
                           className='form-select form-select-solid'
@@ -1155,8 +1153,8 @@ const ProspectsPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Date of Birth (Dob)</label>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800 required'>Date of Birth</label>
                         <input
                           type='text'
                           className='form-control form-control-solid'
@@ -1175,8 +1173,8 @@ const ProspectsPage: FC = () => {
                         2. Location & Bottle Preference
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800 required'>Region (Ghana)</label>
                         <select
                           className='form-select form-select-solid'
@@ -1191,7 +1189,7 @@ const ProspectsPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
+                      <div className='col-6'>
                         <label className='form-label fw-semibold fs-7 text-gray-800'>Bottle Preference</label>
                         <select
                           className='form-select form-select-solid'
@@ -1203,8 +1201,8 @@ const ProspectsPage: FC = () => {
                             })
                           }
                         >
-                          <option value='500g plastic bottles'>500g plastic bottles (Large • Product Code: VIV-500-PL • GH₵ 100 each)</option>
-                          <option value='330g plastic bottles'>330g plastic bottles (Regular • Product Code: VIV-330-PL • GH₵ 85 each)</option>
+                          <option value='500g plastic bottles'>500g plastic bottles (GH₵ 100 • Large)</option>
+                          <option value='330g plastic bottles'>330g plastic bottles (GH₵ 85 • Regular)</option>
                         </select>
                       </div>
                     </div>
@@ -1217,9 +1215,9 @@ const ProspectsPage: FC = () => {
                         3. Verification & Support Desk
                       </span>
                     </div>
-                    <div className='row g-4'>
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800'>Assigned Support Caller</label>
+                    <div className='row g-3 g-md-4'>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800'>Support Caller</label>
                         <select
                           className='form-select form-select-solid'
                           value={editProspect.supportAgent}
@@ -1233,8 +1231,8 @@ const ProspectsPage: FC = () => {
                         </select>
                       </div>
 
-                      <div className='col-12 col-md-6'>
-                        <label className='form-label fw-semibold fs-7 text-gray-800'>Call & Verification Status</label>
+                      <div className='col-6'>
+                        <label className='form-label fw-semibold fs-7 text-gray-800'>Verification Status</label>
                         <select
                           className='form-select form-select-solid'
                           value={editProspect.callStatus}
@@ -1245,7 +1243,7 @@ const ProspectsPage: FC = () => {
                             })
                           }
                         >
-                          <option value='Call Completed'>Call Completed (Profile updated over call)</option>
+                          <option value='Call Completed'>Call Completed</option>
                           <option value='Pending Call'>Pending Call</option>
                           <option value='Follow-up'>Follow-up Needed</option>
                         </select>
